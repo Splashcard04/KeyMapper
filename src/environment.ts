@@ -1,5 +1,5 @@
 import { file } from './map'
-import { json, lookupMethod, Vec3 } from './types'
+import { json, lookupMethod, Vec3, customDataType } from './types'
 
 export class Environment {
     
@@ -10,13 +10,12 @@ export class Environment {
         this.json = { 'id': id, 'lookup': lookup }
     }
 
-    position(position: Vec3) {
-        if(typeof(position[0]) == 'number') {
-            this.json.position = position
-        } else {
-            this.animJson.position = position
-        }
+    data(data: customDataType) {
+        this.json = data
+        return this
     }
+
+    position(pos: Vec3) { this.json.position = pos }
 
     scale(scale: Vec3) {
         if(typeof(scale[0]) == 'number') {  
