@@ -75,7 +75,22 @@ export class cinemaScreenBuilder {
     }
 
     setScreens(settings: { position: Vec3, rotation: Vec3 }[] ) {
-        this.json.additionalScreens = settings
+        const screens: Array<json> = []
+        settings.forEach(x => {
+            screens.push({
+                    'position': {
+                        'x': x.position[0],
+                        'y': x.position[1],
+                        'z': x.position[2]
+                    },
+                    'rotation': {
+                        'x': x.rotation[0],
+                        'y': x.rotation[1],
+                        'z': x.rotation[2]
+                    }
+            })
+        })
+        this.json.additionalScreens = screens
         return this
     }
 
