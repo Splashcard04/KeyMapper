@@ -6,7 +6,7 @@ export type configType = {
 
 type EaseBase<T extends string> = `easeIn${T}` | `easeOut${T}` | `easeInOut${T}`;
 
-type Ease =
+export type Ease =
     "easeLinear" |
     "easeStep" |
     EaseBase<"Quad"> |
@@ -20,17 +20,19 @@ type Ease =
     EaseBase<"Back"> |
     EaseBase<"Bounce">
 
-type Spline = "splineCatmullRom"
+export type Spline = "splineCatmullRom"
 
 
-type Vec3Anim = [number, number, number, number, Ease?, Spline?][]
-type Vec1Anim = [number, number, Ease?, Spline?][]
-type vec5Anim = [number, number, number, number, number, Ease?, Spline?][]
+export type Vec3Anim = [number, number, number, number, Ease?, Spline?][]
+export type Vec1Anim = [number, number, Ease?, Spline?][]
+export type vec5Anim = [number, number, number, number, number, Ease?, Spline?][]
 
 export type lookupMethod = "Contains" | "Regex" | "EndsWith" | "StartsWith" | "Exact"
 
+export type Vec2 = [number, number]
 export type Vec3 = [number, number, number]
 export type Vec4 = [number, number, number, number]
+export type Vec5 = [number, number, number, number, number]
 
 export type cinemaLookup = "youtubeID" | "URL"
 
@@ -39,14 +41,14 @@ export type environmentName =
 
 
 export type customDataType = {
-    coordinates?: [],
-    worldRotation?: [],
-    size?: [],
-    uninteractable?: [],
-    localRotation?: [],
+    coordinates?: Vec2,
+    worldRotation?: Vec3,
+    size?: Vec3,
+    uninteractable?: boolean,
+    localRotation?: Vec3,
     noteJumpMovementSpeed?: number,
     noteJumtStartBeatOffset?: number,
-    color?: [],
+    color?: Vec5,
     spawnEffect?: boolean,
     flip?: boolean,
     disableNoteGravity?: boolean,
