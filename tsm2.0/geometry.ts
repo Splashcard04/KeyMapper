@@ -1,9 +1,9 @@
-import { file } from './map.ts'
-import { Json, Vec4, Vec3 } from './types.ts'
+import { activeDiff } from './map.ts'
+import { Json, Vec4, Vec3, shader } from './types.ts'
 
 type geometryType = "Cube" | "Triangle" | "Quad" | "Cyliner" | "Capsule" | "Sphere"
 type materialType = {
-    shader: string,
+    shader: shader,
     color?: Vec4,
     shaderKeywords?: [],
     track?: ""
@@ -40,6 +40,6 @@ export class geometryBuilder {
     }
 
     push() {
-        file.customData.environment.push(this.json)
+        activeDiff().customData.environment.push(this.json)
     }
 }

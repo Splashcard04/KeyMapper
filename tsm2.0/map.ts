@@ -26,3 +26,7 @@ export class Map {
         else Deno.writeTextFileSync(this.json.output, JSON.stringify(file, null, 0))
     }
 }
+
+export function activeDiff() {
+    return file
+}

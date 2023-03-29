@@ -1,4 +1,4 @@
-import { file } from './map.ts'
+import { activeDiff } from './map.ts'
 import { Json, Vec3 } from './types.ts'
 
 type lookup = "Contains" | "Regex" | "Exact" | "StartsWith" | "EndsWith"
@@ -37,6 +37,6 @@ export class environmentBuilder {
     }
 
     push() {
-        file.customData.environment.push(this.json)
+        activeDiff().customData.environment.push(this.json)
     }
 }
