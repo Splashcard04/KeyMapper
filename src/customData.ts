@@ -1,5 +1,4 @@
-import { threadId } from 'worker_threads'
-import { Vec3, Vec4, Vec2, Vec5, Vec1Anim, Vec3Anim, vec5Anim, Ease, customDataType } from './types'
+import { Vec3, Vec4, Vec2, Vec5, Vec1Anim, Vec3Anim, vec5Anim, Ease, customDataType } from './types.ts'
 
 export class customDataBuilder {
     data: customDataType = {}
@@ -13,32 +12,32 @@ export class customDataBuilder {
         else this.data.uninteractable = true
     }
 
-    localRotation(rot: Vec3) { this.data.localRotation = rot }
-    njs(njs: number) { this.data.noteJumpMovementSpeed = njs }
-    timeOffset(offset: number) { this.data.noteJumtStartBeatOffset = offset }
-    color(color: Vec4) { this.data.color = color }
-    spawnEffect(spawnEffect: boolean) { this.data.spawnEffect = spawnEffect }
-    flip(flip: Vec2) { this.data.flip = flip }
-    disableNoteGravity(disable: boolean) { this.data.disableNoteGravity = disable }
-    disableNoteLook(disable: boolean) { this.data.disableNoteLook = disable }
-    lightID(lightID: number) { this.data.lightID = lightID }
-    lightType(lightType: number) { this.data.lightType = lightType }
-    easing(easing: Ease) { this.data.easing = easing } 
-    lockRotation(lockRotation: boolean) { this.data.lockRotation = lockRotation }
-    speed(speed: number) { this.data.speed = speed }
-    nameFilter(nameFilter: number) { this.data.nameFilter = nameFilter }
-    step(step: number) { this.data.step = step }
-    prop(prop: number) { this.data.prop = prop }
-    direction(direction: number) { this.data.direction = direction }
-    track(track: string) { this.data.track = track }
-    animateColor(color: vec5Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.color = color }
-    animateDissolve(dissolve: Vec1Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.dissolve = dissolve }
-    animatePosition(position: Vec3Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.position = position }
-    animateDefinitePosition(position: Vec3Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.definitePosition = position }
-    animateScale(scale: Vec3Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.scale = scale }
-    animateOffsetPosition(offset: Vec3Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.offsetPosition = offset }
-    animateLocalRotation(rotation: Vec3Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.localRotation = rotation }
-    animateDissolveArrow(dissolve: Vec1Anim) { if(!this.data.animation) this.data.animation = {} ; this.data.animation.dissolve = dissolve }
+    localRotation(rot: Vec3) { this.data.localRotation = rot; return this }
+    njs(njs: number) { this.data.noteJumpMovementSpeed = njs; return this }
+    timeOffset(offset: number) { this.data.noteJumtStartBeatOffset = offset; return this }
+    color(color: Vec4) { this.data.color = color; return this }
+    spawnEffect(spawnEffect: boolean) { this.data.spawnEffect = spawnEffect; return this }
+    flip(flip: Vec2) { this.data.flip = flip; return this }
+    disableNoteGravity(disable: boolean) { this.data.disableNoteGravity = disable; return this }
+    disableNoteLook(disable: boolean) { this.data.disableNoteLook = disable; return this }
+    lightID(lightID: number) { this.data.lightID = lightID; return this }
+    lightType(lightType: number) { this.data.lightType = lightType; return this }
+    easing(easing: Ease) { this.data.easing = easing; return this } 
+    lockRotation(lockRotation: boolean) { this.data.lockRotation = lockRotation; return this }
+    speed(speed: number) { this.data.speed = speed; return this }
+    nameFilter(nameFilter: number) { this.data.nameFilter = nameFilter; return this }
+    step(step: number) { this.data.step = step; return this }
+    prop(prop: number) { this.data.prop = prop; return this }
+    direction(direction: number) { this.data.direction = direction; return this }
+    track(track: string) { this.data.track = track; return this }
+    animateColor(color: vec5Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.color = color; return this }
+    animateDissolve(dissolve: Vec1Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.dissolve = dissolve; return this }
+    animatePosition(position: Vec3Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.position = position; return this }
+    animateDefinitePosition(position: Vec3Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.definitePosition = position; return this }
+    animateScale(scale: Vec3Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.scale = scale; return this }
+    animateOffsetPosition(offset: Vec3Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.offsetPosition = offset; return this }
+    animateLocalRotation(rotation: Vec3Anim) { if(!this.data.animation) this.data.animation = {}; this.data.animation.localRotation = rotation; return this }
+    animateDissolveArrow(dissolve: Vec1Anim) { if(!this.data.animation) this.data.animation = {} ; this.data.animation.dissolve = dissolve; return this }
 
     end() {
         return this.data as customDataType
