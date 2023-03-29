@@ -35,4 +35,8 @@ export class environmentBuilder {
         if(!this.json.components.ILightWithId) this.json.components.ILightWithId = { type: type }
         this.json.components.ILightWithId.type = type
     }
+
+    push() {
+        file.customData.environment.push(this.json)
+    }
 }
