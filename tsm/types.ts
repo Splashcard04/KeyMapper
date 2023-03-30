@@ -28,6 +28,7 @@ export type Vec4 = [number, number, number, number]
 
 export type Vec1Keyframes = [number, number, ease?, spline?][]
 export type Vec3Keyframes = [number, number, number, number, ease?, spline?][]
+export type Vec4Keyframes = [number, number, number, number, number, ease?, spline?][]
 
 export type shader =
     "Standard" |
