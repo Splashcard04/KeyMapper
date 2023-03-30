@@ -95,4 +95,8 @@ export class cinemaScreenBuilder {
         this.json.additionalScreens = screens
         return this
     }
+
+    push() {
+        Deno.writeTextFileSync('cinema-video.json', JSON.stringify(this.json, null, 4))
+    }
 }
