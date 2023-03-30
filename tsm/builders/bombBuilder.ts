@@ -1,5 +1,5 @@
-import { file } from './map.ts'
-import{ Json, Vec2, Vec3, Vec4 } from './types.ts'
+import { file } from '../map.ts'
+import{ Json, Vec2, Vec3, Vec4 } from '../types.ts'
 
 export class bombBuilder {
     json: Json = {

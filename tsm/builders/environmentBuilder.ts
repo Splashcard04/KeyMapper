@@ -1,5 +1,5 @@
-import { activeDiff } from './map.ts'
-import { Json, Vec3 } from './types.ts'
+import { activeDiff } from '../map.ts'
+import { Json, Vec3 } from '../types.ts'
 
 type lookup = "Contains" | "Regex" | "Exact" | "StartsWith" | "EndsWith"
 

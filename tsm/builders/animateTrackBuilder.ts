@@ -1,5 +1,5 @@
-import { activeDiff } from './map.ts'
-import { Json, Vec3Keyframes, Vec1Keyframes, ease, spline, Vec4Keyframes } from './types.ts'
+import { activeDiff } from '../map.ts'
+import { Json, Vec3Keyframes, Vec1Keyframes, ease, spline, Vec4Keyframes } from '../types.ts'
 
 /**useles type so users understand how to animate interactable */
 type interactableType = 1 | 0
@@ -32,4 +32,8 @@ export class animateTrackBuilder {
     definitePosition(position: Vec3Keyframes) { this.json.d.definitePosition = position; return this }
     localPosition(position: Vec3Keyframes) { this.json.d.localPosition = position }
     color(color: Vec4Keyframes) { this.json.d.color = color; return this }
+
+    push() {
+        activeDiff().customData.customEvents.push(this.json)
+    }
 }
