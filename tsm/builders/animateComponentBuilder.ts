@@ -1,5 +1,5 @@
 import { activeDiff } from '../map.ts'
-import { Json, Vec1Keyframes, Vec3Keyframes } from '../types.ts'
+import { Json, Vec1Keyframes } from '../types.ts'
 
 export class animateComponentBuilder {
     json: Json = {
@@ -7,7 +7,12 @@ export class animateComponentBuilder {
         t: "AnimateComponent",
         d: {}
     }
-    constructor(time: number) { this.json.b = time; return this }
+    private config: Json = {}
+    constructor(time: number, track?: string) { 
+        this.json.b = time; 
+        if(track) this.json.d.track = track; this.config.track = track
+        return this 
+    }
 
     attenuation(attenuation: Vec1Keyframes) { 
         if(!this.json.d.BloomFogEnvironment) this.json.d.BloomFogEnvironment = { attenuation: attenuation }
@@ -47,5 +52,8 @@ export class animateComponentBuilder {
 
     push() {
         activeDiff().customData.customEvents.push(this.json)
+        if(this.config.track) {
+            activeDiff().customData.environment.push({"id":"[0]Environment","lookupMethod":"EndsWith","track":this.config.track})
+        }
     }
 }
