@@ -43,9 +43,3 @@ export class customDataBuilder {
         return this.data as customDataType
     }
 }
-
-export class customData {
-    constructor(data: customDataType) {
-        return data as customDataType
-    }
-}
