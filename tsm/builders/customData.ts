@@ -1,4 +1,4 @@
-import { Vec3, Vec4, Vec2, Vec5, Vec1Keyframes, Vec3Keyframes, Vec5Keyframes, ease, customDataType } from './types.ts'
+import { Vec3, Vec4, Vec2, Vec5, Vec1Keyframes, Vec3Keyframes, Vec5Keyframes, ease, customDataType } from '../types.js'
 
 export class customDataBuilder {
     data: customDataType = {}
