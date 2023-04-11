@@ -12,7 +12,7 @@ type animTrackType = {
     scale?: Vec3Keyframes,
     color?: Vec4Keyframes,
     dissolve?: Vec1Keyframes,
-    dissolveArrow? Vec1Keyframes,
+    dissolveArrow?: Vec1Keyframes,
     interactable?: Vec1Keyframes,
     timeAnim?: Vec1Keyframes
 }
