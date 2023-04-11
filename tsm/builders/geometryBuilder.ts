@@ -3,7 +3,7 @@ import { Json, Vec4, Vec3, shader } from '../types.ts'
 
 type geometryType = "Cube" | "Triangle" | "Quad" | "Cyliner" | "Capsule" | "Sphere"
 
-type materialType = {
+export type materialType = {
     shader: shader,
     color?: Vec4,
     shaderKeywords?: [],

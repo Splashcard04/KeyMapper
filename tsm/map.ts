@@ -1,4 +1,5 @@
-import { Json, reqMods, suggestMods } from './types.ts'
+import { materialType } from './main.js'
+import { Json, paths, reqMods, suggestMods } from './types.ts'
 
 export let file = JSON.parse(Deno.readTextFileSync('ExpertPlusLawless.dat'))
 
@@ -15,7 +16,7 @@ type mapConfig = {
 
 export class Map {
     configuration: Json = {}
-    constructor(input: string, output: string) {
+    constructor(input: paths | string, output: paths | string) {
         this.configuration.input = input+'.dat'
         this.configuration.output = output+'.dat'
         file = JSON.parse(Deno.readTextFileSync(this.configuration.input))
@@ -70,8 +71,9 @@ export class Map {
     get fakeWalls() { return this.configuration.file.customData.fakeObstacles }
     get fakeBombs() { return this.configuration.file.customData.fakeBombNotes }
 
-    get materials() { return this.configuration.file.customData.materials }
+    get materials() { return this.configuration.file.customData.materials as Json }
 }
+
 
 export function activeDiff() {
     return file

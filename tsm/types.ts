@@ -86,3 +86,15 @@ export type customDataType = {
         dissolveArrow?: Vec1Keyframes
     }
 }
+
+export type paths = 
+    "ExpertPlusStandard" |
+    "ExpertPlusLawless" |
+    "ExpertStandard" |
+    "ExpertLawless" |
+    "HardStandard" |
+    "HardLawless" |
+    "NormalStandard" |
+    "NormalLawless" |
+    "EasyStandard" |
+    "EasyLawless"
