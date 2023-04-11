@@ -49,39 +49,40 @@ export type reqMods =
 
 export type suggestMods =
     "Cinema" | "Noodle Extensions" | string
-    export type customDataType = {
-        coordinates?: Vec2,
-        worldRotation?: Vec3,
-        size?: Vec3,
-            uninteractable?: boolean,
-            localRotation?: Vec3,
-            noteJumpMovementSpeed?: number,
-            noteJumtStartBeatOffset?: number,
-            color?: Vec4,
-            spawnEffect?: boolean,
-            flip?: Vec2,
-            disableNoteGravity?: boolean,
-            disableNoteLook?: boolean,
-            lightID?: number,
-            lightType?: number,
-            easing?: ease,
-            lockRotation?: boolean,
-            speed?: number,
-            rotation?: number,
-            nameFilter?: number,
-            step?: number,
-            prop?: number,
-            direction?: number,
-            track?: string,
-            animation?: {
-                color?: Vec5Keyframes,
-                dissolve?: Vec1Keyframes,
-                position?: Vec3Keyframes,
-                definitePosition?: Vec3Keyframes,
-                size?: Vec3Keyframes,
-                scale?: Vec3Keyframes,
-                offsetPosition?: Vec3Keyframes,
-                localRotation?: Vec3Keyframes,
-                dissolveArrow?: Vec1Keyframes
-            }
-        }
+    
+export type customDataType = {
+    coordinates?: Vec2,
+    worldRotation?: Vec3,
+    size?: Vec3,
+    uninteractable?: boolean,
+    localRotation?: Vec3,
+    noteJumpMovementSpeed?: number,
+    noteJumtStartBeatOffset?: number,
+    color?: Vec4,
+    spawnEffect?: boolean,
+    flip?: Vec2,
+    disableNoteGravity?: boolean,
+    disableNoteLook?: boolean,
+    lightID?: number,
+    lightType?: number,
+    easing?: ease,
+    lockRotation?: boolean,
+    speed?: number,
+    rotation?: number,
+    nameFilter?: number,
+    step?: number,
+    prop?: number,
+    direction?: number,
+    track?: string,
+    animation?: {
+        color?: Vec5Keyframes,
+        dissolve?: Vec1Keyframes,
+        position?: Vec3Keyframes,
+        definitePosition?: Vec3Keyframes,
+        size?: Vec3Keyframes,
+        scale?: Vec3Keyframes,
+        offsetPosition?: Vec3Keyframes,
+        localRotation?: Vec3Keyframes,
+        dissolveArrow?: Vec1Keyframes
+    }
+}
