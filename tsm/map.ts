@@ -50,6 +50,18 @@ export class Map {
     }
 
     end() {
+
+        file.colorNotes.forEach(x => { if(!x.customData) x.customData = {} })
+        file.obstacles.forEach(x => { if(!x.customData) x.customData = {} })
+        file.bombNotes.forEach(x => { if(!x.customData) x.customData = {} })
+        file.burstSliders.forEach(x => { if(!x.customData) x.customData = {} })
+        file.sliders.forEach(x => { if(!x.customData) x.customData = {} })
+        file.basicBeatmapEvents.forEach(x => { if(!x.customData) x.customData = {} })
+        file.customData.fakeColorNotes.forEach(x => { if(!x.customData) x.customData = {} })
+        file.customData.fakeBombNotes.forEach(x => { if(!x.customData) x.customData = {} })
+        file.customData.fakeObstacles.forEach(x => { if(!x.customData) x.customData = {} })
+        file.customData.fakeBurstSliders.forEach(x => { if(!x.customData) x.customData = {} })
+
         if(this.configuration.formatFile === true) {
             Deno.writeTextFileSync(this.configuration.output, JSON.stringify(this.configuration.file, null, 4))
         } else {
