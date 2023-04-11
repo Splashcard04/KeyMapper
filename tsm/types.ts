@@ -43,7 +43,7 @@ export type shader =
     "WaterfallMirror"
 
 export type reqMods =
-    "Cinema" | "Noodle Extensions" | "Chroma"
+    "Cinema" | "Noodle Extensions" | "Chroma" | string
 
 export type suggestMods =
-    "Cinema" | "Noodle Extensions"
+    "Cinema" | "Noodle Extensions" | string
