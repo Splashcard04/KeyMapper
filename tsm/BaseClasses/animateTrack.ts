@@ -15,13 +15,14 @@ type animTrackType = {
     dissolveArrow?: Vec1Keyframes,
     interactable?: Vec1Keyframes,
     timeAnim?: Vec1Keyframes
-}
 
 export class animateTrack {
     json: Json = {
         b: 0,
         t: "AnimateTrack",
-        d: {}
+        d: {
+            duration: 10
+        }
     }
     constructor(x: animTrackType) {
         this.json.b = x.time ?? 0
