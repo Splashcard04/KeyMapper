@@ -68,7 +68,7 @@ export type customDataType = {
     easing?: ease,
     lockRotation?: boolean,
     speed?: number,
-    rotation?: number,
+    offsetWorldRotation?: number,
     nameFilter?: number,
     step?: number,
     prop?: number,
@@ -80,10 +80,10 @@ export type customDataType = {
         position?: Vec3Keyframes,
         definitePosition?: Vec3Keyframes,
         size?: Vec3Keyframes,
-        scale?: Vec3Keyframes,
         offsetPosition?: Vec3Keyframes,
         localRotation?: Vec3Keyframes,
-        dissolveArrow?: Vec1Keyframes
+        dissolveArrow?: Vec1Keyframes,
+        offsetWorldRotation?: Vec3Keyframes
     }
 }
 
