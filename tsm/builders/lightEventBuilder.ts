@@ -34,6 +34,7 @@ export class lightEvent {
 
     push() {
         activeDiff().basicBeatmapEvents.push(this.json)
+        return this
     }
 
 }
