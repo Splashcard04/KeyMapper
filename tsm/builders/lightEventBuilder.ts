@@ -2,7 +2,7 @@ import { off } from "process";
 import { activeDiff } from "../main.ts";
 import { Json, Vec4, lightTypeType } from "../types.ts";
 
-export class lightEvent {
+export class lightEventBuilder {
     json: Json = {
         b: 0,
         et: 0,

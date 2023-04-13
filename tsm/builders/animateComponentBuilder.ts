@@ -8,8 +8,8 @@ export class animateComponentBuilder {
         d: {}
     }
     private config: Json = {}
-    constructor(time: number, track?: string) { 
-        this.json.b = time; 
+    constructor(time?: number, track?: string) { 
+        this.json.b = time ?? 0; 
         if(track) this.json.d.track = track; this.config.track = track
         return this 
     }
