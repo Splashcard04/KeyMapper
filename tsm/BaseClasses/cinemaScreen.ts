@@ -93,6 +93,6 @@ export class cinemaScreen {
     }
 
     push() {
-        Deno.writeTextFileSync("cinema-video.json", JSON.stringify(this.config.file, null, 4)
+        Deno.writeTextFileSync("cinema-video.json", JSON.stringify(this.config.file, null, 4))
     }
 }
