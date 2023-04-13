@@ -21,6 +21,8 @@ export * from './BaseClasses/customData.ts'
 export * from './BaseClasses/Environment.ts'
 export * from './BaseClasses/lightEvent.ts'
 export * from './BaseClasses/Material.ts'
+export * from './BaseClasses/animateComponent.ts'
+export * from './BaseClasses/cinemaScreen.ts'
 
 //misc
 export * from './map.ts'
