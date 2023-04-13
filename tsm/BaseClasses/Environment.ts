@@ -30,4 +30,8 @@ export class Environment {
         if(!this.json.components.ILightWithType) this.json.components.ILightWithType = { lightType: x.lightType ?? 0 }
         else this.json.components.ILightWithType.lightType = x.lightType
     }
+
+    push() {
+        activeDiff().customData.environment.push(this.json)
+    }
 }
