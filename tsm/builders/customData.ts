@@ -1,4 +1,4 @@
-import { Vec3, Vec4, Vec2, Vec5, Vec1Keyframes, Vec3Keyframes, Vec5Keyframes, ease, customDataType } from '../types.js'
+import { Vec3, Vec4, Vec2, Vec1Keyframes, Vec3Keyframes, Vec4Keyframes, ease, customDataType } from '../types.ts'
 
 export class customDataBuilder {
     data: customDataType = {}
@@ -30,7 +30,7 @@ export class customDataBuilder {
     prop(prop: number) { this.data.prop = prop; return this }
     direction(direction: number) { this.data.direction = direction; return this }
     track(track: string) { this.data.track = track; return this }
-    animateColor(color: Vec5Keyframes) { if(!this.data.animation) this.data.animation = {}; this.data.animation.color = color; return this }
+    animateColor(color: Vec4Keyframes) { if(!this.data.animation) this.data.animation = {}; this.data.animation.color = color; return this }
     animateDissolve(dissolve: Vec1Keyframes) { if(!this.data.animation) this.data.animation = {}; this.data.animation.dissolve = dissolve; return this }
     animatePosition(position: Vec1Keyframes) { if(!this.data.animation) this.data.animation = {}; this.data.animation.position = position; return this }
     animateDefinitePosition(position: Vec3Keyframes) { if(!this.data.animation) this.data.animation = {}; this.data.animation.definitePosition = position; return this }
