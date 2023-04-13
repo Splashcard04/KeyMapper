@@ -1,16 +1,15 @@
-import { Vec3, Vec4, Vec2, Vec1Keyframes, Vec3Keyframes, Vec4Keyframes, ease, customDataType, Json } from '../types.ts'
+import { Vec3, Vec4, Vec2, Vec1Keyframes, Vec3Keyframes, Vec4Keyframes, ease, customDataType } from '../types.ts'
 
 export class customDataBuilder {
-    data: Json = {}
+    data: customDataType = {}
 
-    coordinates(chords: [number, number]) { this.data.coordinates = chords }
-    rotation(rot: Vec3) { this.data.worldRotation = rot }
-    scale(scale: Vec3) { this.data.size = scale }
+    coordinates(chords: [number, number]) { this.data.coordinates = chords; return this }
+    rotation(rot: Vec3) { this.data.worldRotation = rot; return this }
+    scale(scale: Vec3) { this.data.size = scale; return this }
 
     interactable(interactable: boolean) {
         if(interactable==true) this.data.uninteractable = false
         else this.data.uninteractable = true
-        return this
     }
 
     localRotation(rot: Vec3) { this.data.localRotation = rot; return this }
