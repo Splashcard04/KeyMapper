@@ -18,5 +18,6 @@ export class assignPlayerTrackBuilder {
 
     push() {
         activeDiff().customData.customEvents.push(this.json)
+        return this
     }
 }
