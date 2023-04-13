@@ -23,6 +23,7 @@ export * from './BaseClasses/lightEvent.ts'
 export * from './BaseClasses/Material.ts'
 export * from './BaseClasses/animateComponent.ts'
 export * from './BaseClasses/cinemaScreen.ts'
+export * from './BaseClasses/assignPlayerToTrack.ts'
 
 //misc
 export * from './map.ts'
