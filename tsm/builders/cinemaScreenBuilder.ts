@@ -8,7 +8,7 @@ export class cinemaScreenBuilder {
     constructor(id?: string, lookup?: cinemaLookup) {
         if(lookup === 'youtubeID') this.json.videoID = id
         else this.json.videoUrl = id
-        return this.json.id
+        return this
     }
 
 
