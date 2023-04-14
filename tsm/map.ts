@@ -1,5 +1,4 @@
-import { materialType } from './main.js'
-import { Json, paths, reqMods, suggestMods } from './types.ts'
+import { Json, reqMods, suggestMods, Vec3, envs } from './types.ts'
 
 export let file = JSON.parse(Deno.readTextFileSync('ExpertPlusLawless.dat'))
 
@@ -12,56 +11,60 @@ type mapConfig = {
     formatJsonFile?: boolean,
     requirements?: reqMods[],
     suggestions?: suggestMods[],
+    settings?: {
+        mirrorQuality?: 1 | 2 | 3
+    }
+    mapName?: string,
+    mapSubName?: string,
+    colorLeft?: Vec3,
+    colorRight?: Vec3,
+    environment?: envs
 }
 
 export class Map {
     configuration: Json = {}
-    constructor(input: paths | string, output: paths | string) {
+    constructor(input: string, output: string) {
         this.configuration.input = input+'.dat'
         this.configuration.output = output+'.dat'
         file = JSON.parse(Deno.readTextFileSync(this.configuration.input))
         this.configuration.file = file
         file.customData = {
-            environent: [], customEvents: [], fakeColorNotes: [], fakeObstacles: [], fakeBombNotes: [], fakeBurstSliders: [], materials: {}, pointDefinitions: {}
+            environment: [], customEvents: [], fakeColorNotes: [], fakeObstacles: [], fakeBombNotes: [], fakeBurstSliders: [], materials: {}, pointDefinitions: {}
         }
 
         const infoFile = JSON.parse(Deno.readTextFileSync("./Info.dat"))
         this.configuration.infoFile = infoFile
     }
-
+    settings: Json = {}
     config(config: mapConfig) {
+
+        this.settings._mirrorGraphicsSettings = config.settings?.mirrorQuality
 
         const format = config.formatJsonFile ?? false
         if(format == true) this.configuration.formatFile = true
         else this.configuration.formatFile = false
 
-        this.configuration.infoFile._difficultyBeatmapSets.forEach((x: any) => {
+        this.configuration.infoFile._difficultyBeatmapSets.forEach((x: Json) => {
             if(this.configuration.output.indexOf(x._beatmapCharacteristicName) !== -1) {
-                x._difficultyBeatmaps.forEach((y: any) => {
+                x._difficultyBeatmaps.forEach((y: Json) => {
                     if(this.configuration.output.indexOf(y._difficulty) !== -1) {
-                        y._customData = {
-                            _requirements: config.requirements ?? [],
-                            _suggestions: config.suggestions ?? []
-                        }
+                        y.customData = {}
+                        y.customData._requirements = config.requirements ?? []
+                        y.customData._suggestions = config.suggestions ?? []
+                        if(config.settings) y.customData._settings = this.settings
+                        if(config.colorLeft) y.customData._colorLeft = { r: config.colorLeft[0], g: config.colorLeft[1], b: config.colorLeft[2] }
+                        if(config.colorRight) y.customData._colorRight = { r: config.colorRight[0], g: config.colorRight[1], b: config.colorRight[2] }
+                        if(config.environment) this.configuration.infoFile._environmentName = config.environment
                     }
                 })
             }
         })
+
+        if(config.mapName) this.configuration.infoFile._songName = config.mapName
+        if(config.mapSubName) this.configuration.infoFile._songSubName = config.mapSubName
     }
 
     end() {
-
-        file.colorNotes.forEach(x => { if(!x.customData) x.customData = {} })
-        file.obstacles.forEach(x => { if(!x.customData) x.customData = {} })
-        file.bombNotes.forEach(x => { if(!x.customData) x.customData = {} })
-        file.burstSliders.forEach(x => { if(!x.customData) x.customData = {} })
-        file.sliders.forEach(x => { if(!x.customData) x.customData = {} })
-        file.basicBeatmapEvents.forEach(x => { if(!x.customData) x.customData = {} })
-        file.customData.fakeColorNotes.forEach(x => { if(!x.customData) x.customData = {} })
-        file.customData.fakeBombNotes.forEach(x => { if(!x.customData) x.customData = {} })
-        file.customData.fakeObstacles.forEach(x => { if(!x.customData) x.customData = {} })
-        file.customData.fakeBurstSliders.forEach(x => { if(!x.customData) x.customData = {} })
-
         if(this.configuration.formatFile === true) {
             Deno.writeTextFileSync(this.configuration.output, JSON.stringify(this.configuration.file, null, 4))
         } else {
@@ -83,9 +86,8 @@ export class Map {
     get fakeWalls() { return this.configuration.file.customData.fakeObstacles }
     get fakeBombs() { return this.configuration.file.customData.fakeBombNotes }
 
-    get materials() { return this.configuration.file.customData.materials as Json }
+    get materials() { return this.configuration.file.customData.materials }
 }
-
 
 export function activeDiff() {
     return file
