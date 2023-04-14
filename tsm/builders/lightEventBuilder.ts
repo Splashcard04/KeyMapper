@@ -30,7 +30,7 @@ export class lightEventBuilder {
     fade() { this.json.i = 3; return this }
 
     color(color: Vec4) { this.json.customData.color = color; return this }
-    lightID(id: number) { this.json.customData.lightID = id; return this }
+    lightID(id: number | number[]) { this.json.customData.lightID = id; return this }
 
     push() {
         activeDiff().basicBeatmapEvents.push(this.json)
