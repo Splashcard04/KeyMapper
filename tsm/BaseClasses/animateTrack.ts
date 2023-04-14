@@ -14,7 +14,8 @@ type animTrackType = {
     dissolve?: Vec1Keyframes,
     dissolveArrow?: Vec1Keyframes,
     interactable?: Vec1Keyframes,
-    timeAnim?: Vec1Keyframes
+    timeAnim?: Vec1Keyframes 
+}
 
 export class animateTrack {
     json: Json = {
@@ -39,6 +40,9 @@ export class animateTrack {
         this.json.d.interactable = x.interactable
         this.json.d.time = x.timeAnim
     }
+
+    /**returns the animate track in json form */
+    toJson() { return this.json as Json }
 
     push() {
         activeDiff().customData.customEvents.push(this.json)

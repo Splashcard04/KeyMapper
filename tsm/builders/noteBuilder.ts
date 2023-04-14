@@ -91,6 +91,9 @@ export class noteBuilder {
     /**disable the note's turn animation at the end of its life */
     disableNoteLook() { this.json.customData.disableNoteLook = true; return this }
 
+    /**returns the note object as json */
+    toJson() { return this.json as Json }
+
     /**push the note to the difficulty */
     push() {
         if(this.config.fake == false) {

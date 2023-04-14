@@ -16,6 +16,9 @@ export class assignPlayerTrackBuilder {
     time(time: number) { this.json.b = time; return this }
     track(track: string) { this.json.d.track = track; return this }
 
+    /**returns the assign player to track event in json form */
+    toJson() { return this.json as Json }
+
     push() {
         activeDiff().customData.customEvents.push(this.json)
         return this

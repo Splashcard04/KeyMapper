@@ -38,6 +38,9 @@ export class Geometry {
         else this.json.components.ILightWithType.lightType = x.lightType
     }
 
+    /**returns the geometry object as json */
+    toJson() { return this.json as Json }
+
     push() {
         activeDiff().customData.environment.push(this.json)
     }

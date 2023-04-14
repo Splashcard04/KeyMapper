@@ -9,6 +9,7 @@ export class pointDefinitionBuilder {
     constructor(name: string) { this.config.name = name; return this }
 
     keyframes(keyframes: Vec1Keyframes | Vec3Keyframes | Vec4Keyframes) { this.config.keyframes = keyframes; return this }
+
     push() {
         activeDiff().customData.pointDefinitions[this.config.name] = this.config.keyframes ?? [[0,0],[0,1]]
     }

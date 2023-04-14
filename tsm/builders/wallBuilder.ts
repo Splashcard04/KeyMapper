@@ -52,6 +52,9 @@ export class WallBuilder {
 
     //#endregion
 
+    /**returns the wall object as json */
+    toJson() { return this.json as Json }
+
     push() {
         if(this.config.fake === true) {
             activeDiff().customData.fakeObstacles.push(this.json)

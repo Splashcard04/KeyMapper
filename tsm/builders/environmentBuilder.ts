@@ -36,6 +36,9 @@ export class environmentBuilder {
         this.json.components.ILightWithId.type = type
     }
 
+    /**returns the environment object as json */
+    toJson() { return this.json as Json }
+
     push() {
         activeDiff().customData.environment.push(this.json)
     }

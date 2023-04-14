@@ -32,6 +32,9 @@ export class bombBuilder {
     animateScale(scale: Vec3Keyframes) { this.json.customData.animation.size = scale; return this }
     animateColor(color: Vec4Keyframes) { this.json.customdata.animation.color = color; return this }
 
+    /**returns the bomb in json form */
+    toJson() { return this.json as Json }
+
     push() {
         if(this.config.fake === false) file.bombNotes.push(this.json)
         else file.customData.fakeBombNotes.push(this.json)

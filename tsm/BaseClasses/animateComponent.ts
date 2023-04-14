@@ -55,6 +55,9 @@ export class animateComponent {
         }
     }
 
+    /**represent the custom event as json */
+    toJson() { return this.json as Json }
+
     push() {
         activeDiff().customData.customEvents.push(this.json)
         return this

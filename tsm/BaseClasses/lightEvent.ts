@@ -31,6 +31,9 @@ export class lightEvent {
         this.json.customData.lightID = x.lightID
     }
 
+    /**return's the light event as json */
+    toJson() { return this.json as Json }
+
     push() {
         activeDiff().basicBeatmapEvents.push(this.json)
         return this

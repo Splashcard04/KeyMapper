@@ -20,6 +20,9 @@ export class Material {
         this.json.track = x.track
     }
 
+    /**returns the created material as json */
+    toJson() { return this.json as Json }
+
     push() {
         activeDiff().customData.materials[this.config.name] = this.json
         return this

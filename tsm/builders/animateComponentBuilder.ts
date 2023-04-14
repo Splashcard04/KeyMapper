@@ -50,6 +50,9 @@ export class animateComponentBuilder {
         return this
     }
 
+    /**represent the custom event as json */
+    toJson() { return this.json as Json }
+
     push() {
         activeDiff().customData.customEvents.push(this.json)
         if(this.config.track) {

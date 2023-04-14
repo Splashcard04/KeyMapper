@@ -14,6 +14,9 @@ export class materialBuilder {
     color(color: Vec4) { this.json.color = color; return this }
     shaderKeywords(shaderKeywords: string[]) { this.json.shaderKeywords = shaderKeywords; return this }
     track(track: string) { this.json.track = track }
+
+    /**returns the created material as json */
+    toJson() { return this.json as Json }
     
     push() {
         activeDiff().customData.materials[this.config.name] = this.json

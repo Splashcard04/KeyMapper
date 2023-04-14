@@ -33,6 +33,9 @@ export class animateTrackBuilder {
     localPosition(position: Vec3Keyframes) { this.json.d.localPosition = position }
     color(color: Vec4Keyframes) { this.json.d.color = color; return this }
 
+    /**returns the animate track in json form */
+    toJson() { return this.json as Json }
+
     push() {
         activeDiff().customData.customEvents.push(this.json)
     }

@@ -32,6 +32,9 @@ export class lightEventBuilder {
     color(color: Vec4) { this.json.customData.color = color; return this }
     lightID(id: number | number[]) { this.json.customData.lightID = id; return this }
 
+    /**return's the light event as json */
+    toJson() { return this.json as Json }
+
     push() {
         activeDiff().basicBeatmapEvents.push(this.json)
         return this

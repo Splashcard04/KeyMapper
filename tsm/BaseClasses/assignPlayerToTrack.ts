@@ -18,6 +18,9 @@ export class assignPlayerToTrack {
         this.json.d.track = x.track ?? "track"
     }
 
+    /**returns the assign player to track event in json form */
+    toJson() { return this.json as Json }
+
     push() {
         activeDiff().customData.customEvents.push(this.json)
     }
