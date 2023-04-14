@@ -6,7 +6,7 @@ type lightEventType = {
     type?: lightTypeType,
     eventValue?: "on" | "off" | "fade",
     color?: Vec4,
-    lightID?: number
+    lightID?: number | mumber[]
 }
 
 export class lightEvent {
