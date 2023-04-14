@@ -1,4 +1,3 @@
-import { off } from "process";
 import { activeDiff } from "../main.ts";
 import { Json, Vec4, lightTypeType } from "../types.ts";
 
@@ -14,6 +13,7 @@ export class lightEventBuilder {
     /**create a light event to light any laser in your map */
     constructor(time?: number) {
         this.json.b = time ?? 0
+        return this
     }
 
     /**set the type (light lane) to target */
