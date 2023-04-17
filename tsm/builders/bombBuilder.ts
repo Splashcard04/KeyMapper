@@ -14,6 +14,8 @@ export class bombBuilder {
 
     /**is the bomb fake? */
     fake(fake: boolean) { this.config.fake = fake; return this }
+    /**is the bomb interactable? */
+    interactable(interactable: boolean) { this.json.customData.uninteractable = !interactable; return this }
 
     /**the static scale of the bomb */
     scale(scale: Vec3) { this.json.customData.size = scale; return this }
