@@ -32,6 +32,8 @@ export class WallBuilder {
     color(color: Vec4) { this.json.customData.color = color; return this }
     /**the wall's movment speed */
     movmentSpeed(speed: number) { this.json.customData.noteJumpMovementSpeed = speed; return this }
+    /**the track to assign the wall to */
+    track(track: string) { this.json.customData.track = track; return this }
     
     //#region animation
 
