@@ -1,5 +1,4 @@
 import { paths, ease, Vec3Keyframes, Vec1Keyframes, Vec4Keyframes } from "./types.ts";
-import { animateTrack } from "./BaseClasses/AnimateTrack.ts";
 import { assignPlayerTrackBuilder } from "./builders/assignPlayerToTrackBuilder.ts"
 import { animateTrackBuilder } from "./builders/animateTrackBuilder.ts"
 import { animateComponentBuilder } from "./builders/animateComponentBuilder.ts"
