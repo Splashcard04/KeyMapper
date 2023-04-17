@@ -28,7 +28,7 @@ export class bombBuilder {
     /**the lifetime movement speed of the bomb */
     njs(njs: number) { this.json.customData.noteJumpMovementSpeed = njs; return this }
     /**the time offset of the bomb */
-    offset(offset: null) { this.json.customData.noteJumpStartBeatOffset = offset; return this }
+    timeOffset(offset: null) { this.json.customData.noteJumpStartBeatOffset = offset; return this }
     /**the track to assign the bomb to */
     track(track: string) { this.json.customData.track = track; return this }
     /**the static color of the bomb */
@@ -40,6 +40,7 @@ export class bombBuilder {
     noteGravity(gravity: boolean) { if(gravity==true) { this.json.customData.disableNoteGravity = false } else { this.json.customData.disableNoteGravity = true } return this }
     /**disable the bomb's 'look at player' animation at the end of its jump*/
     noteLook(look: boolean) { if(look == true) { this.json.customData.disableNoteLook = false } else { this.json.customData.disableNoteLook = true } return this }
+    /**the bomb'a movemnt speed */
 
     /**the bombs animated position */
     animatePosition(position: Vec3Keyframes) { this.json.customData.animation.position = position; return this }

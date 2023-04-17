@@ -81,9 +81,9 @@ export class noteBuilder {
     /**the animated offset position of the note */
     animateOffsetPosition(position: Vec3Keyframes) { this.json.customData.animation.offsetPosition = position; return this }
     /**the speed that the note will move at across it's lifespan */
-    NJS(speed: number) { this.json.customData.noteJumpMovementSpeed = speed; return this }
+    njs(speed: number) { this.json.customData.noteJumpMovementSpeed = speed; return this }
     /**the beat offset of the note */
-    beatOffset(offset: number) { this.json.customData.noteJumpStartBeatOffset = offset; return this }
+    timeOffset(offset: number) { this.json.customData.noteJumpStartBeatOffset = offset; return this }
     /**flip the note from a set spawn position to its true position */
     flip(flip: Vec2) { this.json.customData.flip = flip; return this }
     /**disable the notes "float up" animation at it's spawn */
