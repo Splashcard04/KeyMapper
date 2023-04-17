@@ -13,8 +13,9 @@ export class animateComponentBuilder {
      * @param { number } time The time to start animating the component(s), duration will apply based on the track you assign
      * @param { string } track The track to animate the component(s) on
     */
-    constructor(time?: number, track?: string) { 
+    constructor(time?: number, duration?: number, track?: string) { 
         this.json.b = time ?? 0; 
+        this.json.customData.d = duration ?? 10
         if(track) { this.json.d.track = track; this.config.track = track }
         else this.json.d.track = "track"; this.config.track = "track"
         return this 
