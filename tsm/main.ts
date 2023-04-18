@@ -29,6 +29,12 @@ export * from './BaseClasses/assignPlayerToTrack.ts'
 export * from './map.ts'
 export * from './general.ts'
 
+//map key
+export * from './MapKey/BaseClasses/playerAnimation.ts'
+export * from './MapKey/BaseClasses/Despawner.ts'
+export * from './MapKey/builders/playerAnimationBuilder.ts'
+export * from './MapKey/builders/despawnerBuilder.ts'
+
 //constants
 export { 
     ease, 

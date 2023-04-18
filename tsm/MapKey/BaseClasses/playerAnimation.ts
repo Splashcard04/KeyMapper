@@ -1,6 +1,7 @@
 import { animateTrack } from "../../BaseClasses/animateTrack.ts"
 import { assignPlayerTrack } from "../../BaseClasses/assignPlayerToTrack.ts"
 import { animateTrackBuilder } from "../../builders/animateTrackBuilder"
+import { log } from "../../internal.ts"
 
 type playerAnimationType = {
     time?: number,
@@ -22,7 +23,7 @@ export class playerAnimation {
 
             new assignPlayerTrack({ track: trackVal.toString(), time: this.x.time }).push()
         } else {
-            console.warn(`No modifications were provided for track at ${this.x.time}, the player was not assigned to a track`)
+            log(`No modifications were provided for track at ${this.x.time}, the player was not assigned to a track`, 'warn')
         }
     }
 }
