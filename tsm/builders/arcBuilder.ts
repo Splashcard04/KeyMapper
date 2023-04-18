@@ -19,7 +19,6 @@ export class arcBuilder {
             animation: {}
         }
     }
-    private config: Json = {}
     constructor(time?: number, tailTime?: number) {
         this.json.b = time ?? 0
         this.json.tb = tailTime ?? 1
@@ -29,7 +28,6 @@ export class arcBuilder {
     time(time: number) { this.json.b = time; return this }
     x(x: number) { this.json.x = x; return this }
     y(y: number) { this.json.y = y; return this }
-    position(position: Vec2) { this.json.coordinates = position; return this }
     type(type: 1 | 2) { this.json.c = type; return this }
     cutDirection(cutDirection: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8) { this.json.d = cutDirection; return this }
     tailTime(time: number) { this.json.tb = time; return this }
@@ -45,6 +43,7 @@ export class arcBuilder {
     localRotation(localRotation: Vec3) { this.json.customData.localRotation = localRotation; return this }
     scale(scale: Vec3) { this.json.customData.size = scale; return this }
     interactable(interactable: boolean) { this.json.customData.uninteractable = !interactable; return this }
+    position(pos: Vec2) { this.json.customData.coordinates = pos; return this }
 
 
     animatePosition(position: Vec3Keyframes) { this.json.customData.animation.position = position; return this }
