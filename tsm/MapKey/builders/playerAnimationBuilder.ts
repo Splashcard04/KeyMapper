@@ -1,6 +1,6 @@
 import { animateTrackBuilder } from "../../builders/animateTrackBuilder";
 import { assignPlayerTrackBuilder } from "../../builders/assignPlayerToTrackBuilder";
-import { Json } from "../../types";
+import { Json } from "../../types.ts";
 import { log } from '../../internal.ts'
 
 export class playerAnimationBuilder {
