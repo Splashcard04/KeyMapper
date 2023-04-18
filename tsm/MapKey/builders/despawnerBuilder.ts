@@ -1,7 +1,7 @@
 import { environmentBuilder } from '../../builders/environmentBuilder.ts';
 import { Json } from '../../types.ts';
 
-type lookup = "Contans" | "Regex" | "EndsWith" | "StartsWith" | "Exact"
+type lookup = "Contains" | "Regex" | "EndsWith" | "StartsWith" | "Exact"
 
 export class despawnerBuilder {
     private config: Json = {}
