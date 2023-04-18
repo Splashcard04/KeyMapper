@@ -16,11 +16,7 @@ export class playerAnimation {
             if(!this.x.time) this.x.time = 0
             if(!this.x.timeEnd) this.x.timeEnd = 10
             const trackVal = Math.random() * 10 - Math.random()
-            const track = new animateTrack({
-                time: this.x.time,
-                duration: this.x.timeEnd - this.x.time,
-                track: trackVal.toString()
-            })
+            const track = new animateTrackBuilder(trackVal.toString(), this.x.time, this.x.timeEnd)
             this.x.forTrack(track)
             track.push()
 
