@@ -6,7 +6,7 @@ type assignPlayerToTrackType = {
     track?: string
 }
 
-export class assignPlayerToTrack {
+export class assignPlayerTrack {
     json: Json = {
         b: 0,
         t: "AssignPlayerToTrack",

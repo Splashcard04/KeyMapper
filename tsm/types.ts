@@ -113,3 +113,8 @@ export enum cutDirection {
     downRight,
     any
 }
+
+export enum noteType {
+    red,
+    blue
+}

@@ -11,6 +11,7 @@ type animTrackType = {
     localRotation?: Vec3Keyframes,
     scale?: Vec3Keyframes,
     color?: Vec4Keyframes,
+    track?: string,
     dissolve?: Vec1Keyframes,
     dissolveArrow?: Vec1Keyframes,
     interactable?: Vec1Keyframes,

@@ -7,11 +7,11 @@ type envType = {
     position?: Vec3,
     rotation?: Vec3,
     localRotation?: Vec3,
+    active?: boolean,
     scale?: Vec3,
     track?: string,
     lightID?: number,
     lightType?: number
-    components: {}
 }
 
 export class Environment {
