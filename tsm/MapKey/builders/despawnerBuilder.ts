@@ -17,6 +17,8 @@ export class despawnerBuilder {
     restore(ids: string[]) { this.config.restore = ids; return this }
     hardDespawn(ids: string[]) { this.config.hardDespawn = ids; return this }
 
+    advancedDespawn(ids: [string, lookup][]) { this.config.advancedDespawn = ids; return this }
+
     push() {
         this.config.ids.forEach(x => {
             new environmentBuilder(x, this.config.lookup)
@@ -40,6 +42,12 @@ export class despawnerBuilder {
                 .push()
             })
         }
+
+        this.config.advancedDespawn.forEach(x => {
+            new environmentBuilder(x[0], x[1])
+            .position([-9999, -9999, -9999])
+            .push()
+        })
     }
 
 }

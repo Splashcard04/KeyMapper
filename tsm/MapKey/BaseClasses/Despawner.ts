@@ -4,7 +4,8 @@ type despawnerType = {
     lookup?: "Contains" | "Regex" | "EndsWith" | "StartsWith" | "Exact",
     ids?: string[],
     restore?: string[],
-    hardDespawn?: string[]
+    hardDespawn?: string[],
+    advancedDespawn?: [string, "Contains" | "Regex" | "EndsWith" | "StartsWith" | "Exact"][]
 }
 
 export class Despawner {
@@ -37,6 +38,16 @@ export class Despawner {
                     id: x,
                     lookup: this.x.lookup,
                     active: false
+                }).push()
+            })
+        }
+
+        if(this.x.advancedDespawn) {
+            this.x.advancedDespawn.forEach(x => {
+                new Environment({
+                    id: x[0],
+                    lookup: x[1],
+                    position: [-9999, -9999, -9999]
                 }).push()
             })
         }
