@@ -1,54 +1,51 @@
 import { Json } from '../types.ts'
+import { environmentBuilder } from './environmentBuilder.ts'
 import { geometryBuilder, materialType } from './geometryBuilder.ts'
+import { WallBuilder } from './wallBuilder.ts'
+import { animateTrackBuilder } from './animateTrackBuilder.ts'
 
-export class modelToGeometryBuilder {
-    private config: Json = {
-        materialGroups: []
-    }
+type groupType = geometryBuilder | WallBuilder | environmentBuilder
 
-    type(type: "Cube" | "Triangle" | "Quad" | "Cyliner" | "Capsule" | "Sphere") {
-        this.config.type = type
+export class modelBuilder {
+    c: Json = {}
+    a: Array<{
+        track: string,
+        object: groupType
+    }> = []
+    constructor(public object: groupType) {
         return this
     }
 
-    material(material: string | materialType) {
-        this.config.material = material
+    addMaterialGroup(track: string, object: groupType) { 
+        this.a.push({
+            track: track,
+            object: object
+        })
         return this
     }
 
     static(path: string) {
+        this.c.path = path
         const file = JSON.parse(Deno.readTextFileSync(path+'.rmmodel'))
-        this.config.file = file
-        this.config.path = path
-        file.objects.forEach((x: Json) => {
-            new geometryBuilder(this.config.type ?? "Cube", this.config.material ?? { shader: "Standard" })
-            .position(x.pos)
-            .localRotation(x.rot)
-            .scale(x.scale)
-            .push()
-        })
 
-        this.config.materialGroups.forEach((x: Json) => {
-            file.objects.forEach((y: Json) => {
-                if(y.track == x.track) {
-                    new geometryBuilder(x.type, x.material)
-                    .position(y.pos)
-                    .localRotation(y.rot)
-                    .scale(y.scale)
+        file.objects.forEach((x: Json) => {
+            this.a.forEach(a => {
+                if(a.track == x.track) {
+                    a.object
+                    .position(x.pos)
+                    .localRotation(x.rot)
+                    .scale(x.scale)
+                    .push()
+                } else {
+                    this.object
+                    .position(x.pos)
+                    .localRotation(x.rot)
+                    .scale(x.scale)
                     .push()
                 }
             })
         })
-        return this
     }
 
-    addMaterialGroup(track: string, material?: materialType | string, type?: "Cube" | "Triangle" | "Quad" | "Cyliner" | "Capsule" | "Sphere") {
 
-        this.config.materialGroups.push({
-            track: track,
-            material: material ?? { shader: "Standard" },
-            type: type ?? "Cube"
-        })
-        return this
-    }
 }
