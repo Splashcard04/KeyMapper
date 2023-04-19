@@ -141,3 +141,21 @@ export function wallsBetween(time: number, timeEnd: number, forWall: (w: WallBui
         }
     })
 }
+
+export function objectsBetween(time: number, timeEnd: number, forObject: (o: noteBuilder | bombBuilder | chainBuilder | arcBuilder) => void) {
+    /**
+     * apply data to objects between two points in time
+     * @param { number } time the time to start applying custom data to objects
+     * @param { timeEnd } timeEnd the time to stop applying custom data to objects
+     * @param { (o: noteBuilder) } forObject the data to apply to each object
+    */
+    notesBetween(time, timeEnd, forObject)
+    bombsBetween(time, timeEnd, forObject)
+    chainsBetween(time, timeEnd, forObject)
+    arcsBetween(time, timeEnd, forObject)
+}
+
+export function loop(repeat: number, code: (i: number) => void) {
+    /**please dont use this */
+	for (let i = 0; i < repeat; i++) code(i);
+}
