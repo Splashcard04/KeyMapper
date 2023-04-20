@@ -87,17 +87,7 @@ export type customDataType = {
     }
 }
 
-export type paths = 
-    "ExpertPlusStandard" |
-    "ExpertPlusLawless" |
-    "ExpertStandard" |
-    "ExpertLawless" |
-    "HardStandard" |
-    "HardLawless" |
-    "NormalStandard" |
-    "NormalLawless" |
-    "EasyStandard" |
-    "EasyLawless"
+
 
 export type lightTypeType =
     0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20
@@ -118,3 +108,7 @@ export enum noteType {
     red,
     blue
 }
+
+type base<T extends string> = `Easy${T}` | `Normal${T}` | `Hard${T}` | `Expert${T}` | `ExpertPlus${T}`
+
+export type paths = base<"Standard"> | base<"Lawless"> |  base<"NoArrows"> | base<"OneSaber"> | base<"360Degree"> | base<"90Degree">

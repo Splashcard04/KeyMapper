@@ -1,6 +1,6 @@
 import { animateTrack } from "../../BaseClasses/animateTrack.ts"
 import { assignPlayerTrack } from "../../BaseClasses/assignPlayerToTrack.ts"
-import { animateTrackBuilder } from "../../builders/animateTrackBuilder"
+import { animateTrackBuilder } from "../../builders/animateTrackBuilder.ts"
 import { log } from "../../internal.ts"
 
 type playerAnimationType = {

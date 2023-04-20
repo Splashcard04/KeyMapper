@@ -36,17 +36,4 @@ export * from './MapKey/builders/playerAnimationBuilder.ts'
 export * from './MapKey/builders/despawnerBuilder.ts'
 
 //constants
-export { 
-    ease, 
-    spline, 
-    Vec1Keyframes, 
-    Vec2, 
-    Vec3,
-    Vec3Keyframes, 
-    Vec4, 
-    Vec4Keyframes, 
-    Vec5,
-    Vec5Keyframes,
-    shader,
-    customDataType
-} from './types.ts'
+export * from './types.ts'
