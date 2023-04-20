@@ -7,7 +7,7 @@ import { noteBuilder } from "./builders/noteBuilder.ts";
 import { bombBuilder } from "./builders/bombBuilder.ts";
 import { chainBuilder } from "./builders/chainBuilder.ts";
 import { arcBuilder } from './builders/arcBuilder.ts';
-import { WallBuilder } from "./builders/wallBuilder.ts";
+import { WallBuilder } from "./builders/wallBuilder.ts"; 
 
 export function r(min: number, max: number) {
     return Math.random() * (max - min) + min;

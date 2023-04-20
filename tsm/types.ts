@@ -48,7 +48,7 @@ export type reqMods =
     "Cinema" | "Noodle Extensions" | "Chroma" | string
 
 export type suggestMods =
-    "Cinema" | "Noodle Extensions" | string
+    "Cinema" | "Noodle Extensions" | "Chroma" | string
     
 export type customDataType = {
     coordinates?: Vec2,

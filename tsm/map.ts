@@ -19,6 +19,9 @@ type mapConfig = {
     colorLeft?: Vec3,
     colorRight?: Vec3,
     environment?: envs
+    reduceDebris?: boolean,
+    noHud?: boolean,
+    hideSpawnEffect?: boolean
 }
 
 export class Map {
@@ -55,6 +58,9 @@ export class Map {
                         if(config.colorLeft) y.customData._colorLeft = { r: config.colorLeft[0], g: config.colorLeft[1], b: config.colorLeft[2] }
                         if(config.colorRight) y.customData._colorRight = { r: config.colorRight[0], g: config.colorRight[1], b: config.colorRight[2] }
                         if(config.environment) this.configuration.infoFile._environmentName = config.environment
+                        if(config.reduceDebris) y.customData._playerOptions._reduceDebris = config.reduceDebris
+                        if(config.noHud) y.customData._playerOptions._noTextsAndHuds = config.noHud
+                        if(config.hideSpawnEffect) y.customData._playerOptions._hideSpawnEffect = config.hideSpawnEffect
                     }
                 })
             }
