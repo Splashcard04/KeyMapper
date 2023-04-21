@@ -52,7 +52,7 @@ export class Map {
                         y.customData = {}
                         y.customData._requirements = config.requirements ?? []
                         y.customData._suggestions = config.suggestions ?? []
-                        if(config.mirrorQuality) y.customData._graphics._mirrorGraphicsSettings = config.mirrorQuality
+                        if(config.mirrorQuality) y.customData._playerOptions._graphics._mirrorGraphicsSettings = config.mirrorQuality
                         if(config.colorLeft) y.customData._colorLeft = { r: config.colorLeft[0], g: config.colorLeft[1], b: config.colorLeft[2] }
                         if(config.colorRight) y.customData._colorRight = { r: config.colorRight[0], g: config.colorRight[1], b: config.colorRight[2] }
                         if(config.environment) this.configuration.infoFile._environmentName = config.environment
