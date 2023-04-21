@@ -11,9 +11,7 @@ type mapConfig = {
     formatJsonFile?: boolean,
     requirements?: reqMods[],
     suggestions?: suggestMods[],
-    settings?: {
-        mirrorQuality?: 1 | 2 | 3
-    }
+    mirrorQuality?: 1 | 2 | 3
     mapName?: string,
     mapSubName?: string,
     colorLeft?: Vec3,
@@ -54,7 +52,7 @@ export class Map {
                         y.customData = {}
                         y.customData._requirements = config.requirements ?? []
                         y.customData._suggestions = config.suggestions ?? []
-                        if(config.settings) y.customData._settings = this.settings
+                        if(config.mirrorQuality) y.customData._graphics._mirrorGraphicsSettings = config.mirrorQuality
                         if(config.colorLeft) y.customData._colorLeft = { r: config.colorLeft[0], g: config.colorLeft[1], b: config.colorLeft[2] }
                         if(config.colorRight) y.customData._colorRight = { r: config.colorRight[0], g: config.colorRight[1], b: config.colorRight[2] }
                         if(config.environment) this.configuration.infoFile._environmentName = config.environment
