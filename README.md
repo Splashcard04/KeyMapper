@@ -29,4 +29,4 @@ new EnvironmentBuilder("Sun$", "Regex")
 ```
 KeyMapper also includes classes for models as well as objects (Notes, Walls, ect.), lightEvents, Environment/Geometry and much more.
 
-#### Head over to the [wiki](https://github.com/Splashcard04/TSMap/wiki) to get started
+### Head over to the [wiki](https://github.com/Splashcard04/TSMap/wiki) to get started
