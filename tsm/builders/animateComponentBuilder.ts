@@ -20,6 +20,13 @@ export class animateComponentBuilder {
         else this.json.d.track = "track"; this.config.track = "track"
         return this 
     }
+    /**the time of the component animation */
+    time(time: number) { this.json.b = time; return this }
+    /**the duration of the component animation */
+    duration(duration: number) { this.json.d.duration = duration; return this }
+    /**the track to animate component(s) on */
+    track(track: string) { this.json.d.track = track; return this }
+    
     /**animate the environment's fog attenuation */
     attenuation(attenuation: Vec1Keyframes) { 
         if(!this.json.d.BloomFogEnvironment) this.json.d.BloomFogEnvironment = { attenuation: attenuation }
