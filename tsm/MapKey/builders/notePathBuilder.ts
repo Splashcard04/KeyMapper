@@ -7,26 +7,38 @@ export class notePathBuilder {
     private d: {
         time: number,
         timeEnd: number,
-        track: string
-        d: {}
+        trackL: string
+        trackR: string
     }
-    constructor(time: number, timeEnd: number, animation: (x: animateTrackBuilder) => void) {
+    constructor(time: number, timeEnd: number, left?: (x:animateTrackBuilder) => void, right?: (x: animateTrackBuilder) => void) {
         this.d.time = time
         this.d.timeEnd = timeEnd
 
-        this.d.track = `${Math.floor(Math.random() * 100) - 50 * Math.random()}`
+        this.d.trackL = `${Math.floor(Math.random() * 100) - 50 * Math.random()}`
+        this.d.trackR = `${Math.floor(Math.random() * 100) - 50 * Math.random()}`
 
-        const track = new animateTrackBuilder(this.d.track, time, timeEnd-time)
+        const trackL = new animateTrackBuilder(this.d.trackL, time, timeEnd-time)
+        const trackR = new animateTrackBuilder(this.d.trackR, time, timeEnd-time)
 
-        animation(track)
-
-        this.d.d = track.toJson()
+        if(left) {
+            left(trackL)
+        }
+        if(right) {
+            right(trackL)
+        }
+        trackR.push()
+        trackL.push()
+        
     }
 
     push() {
         activeDiff().customData.customEvents.push(this.d.d)
         notesBetween(this.d.time, this.d.timeEnd, x => {
-            x.track(this.d.track)
+            if(x.toJson().x == 0 || x.toJson().x == 1) {
+                x.track(this.d.trackL)
+            } else {
+                x.track(this.d.trackR)
+            }
         })
     }
 
