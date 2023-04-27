@@ -16,6 +16,9 @@ export class lightEventBuilder {
         return this
     }
 
+    /**set the time of the light event */
+    time(time: number) { this.json.b = time; return this }
+
     /**set the type (light lane) to target */
     type(type: lightTypeType) {
         this.json.et = type;
