@@ -23,6 +23,12 @@ export class animateTrackBuilder {
         this.json.b = time ?? 0
         this.json.d.duration = duration ?? 10
     }
+    /**the track name */
+    track(track: string) { this.json.d.track = track; return this }
+    /**the time of the track */
+    time(time: number) { this.json.b = time; return this }
+    /**the duration of the track */
+    duration(duration: number) { this.json.d.duration = duration; return this }
 
     /**The animated position of the track */
     position(position: Vec3Keyframes) { this.json.d.position = position; return this }
@@ -31,7 +37,7 @@ export class animateTrackBuilder {
     /**The animated **Local Axis Based** rotation of the track */
     localRotation(rotation: Vec3Keyframes) { this.json.d.localRotation = rotation; return this }
     /**The time **Animation** of the track */
-    time(time: Vec1Keyframes) { this.json.d.time = time; return this }
+    timeAnim(time: Vec1Keyframes) { this.json.d.time = time; return this }
     /**the animated offset position of the track */
     offsetPosition(position: Vec3Keyframes) { this.json.d.offsetPosition = position; return this }
     /**the animated **Offset** world rotation of the track */
