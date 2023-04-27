@@ -19,6 +19,9 @@ export class noteBuilder {
         this.json.b = time ?? 0
     }
 
+    /**the note object's time */
+    time(time: number) { this.json.b = time; return this }
+
     /**if the note is pushed as fake or not */
     fake(fake?: boolean) {
         if(!fake) this.config.fake = false;
