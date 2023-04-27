@@ -18,6 +18,8 @@ export class WallBuilder {
         this.json.b = time;
         return this
     }
+    /**the wall object's start time */
+    time(time: number) { this.json.b = time; return this }
     /**is the wall fake? */
     fake(fake: boolean) { this.config.fake = fake; return this }
     /**the wall's x and why coordinates position */
