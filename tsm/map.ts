@@ -37,6 +37,58 @@ export class Map {
         this.configuration.infoFile = infoFile
     }
     settings: Json = {}
+
+    log(log?: logType) {
+        if(!log || !log.customData && !log.customData) {
+            console.log(`
+            ______________________________________________________________________
+            \x1b[4m\u001b[1mMap Data
+                \n
+                \x1b[36m\x1b[4m\x1b[1mVanilla Data: 
+
+                    \x1b[35m\x1b\x1bbNotes: ${file.colorNotes.length},
+                    \x1b[35m\x1b\x1bbWalls: ${file.obstacles.length}
+                    \x1b[35m\x1b\x1bbBombNotes: ${file.bombNotes.length},
+                    \x1b[35m\x1b\x1bbChains: ${file.burstSliders.length},
+                    \x1b[35m\x1b\x1bbArcs: ${file.sliders.length},
+                    \x1b[35m\x1b\x1bbLightEvents: ${file.basicBeatmapEvents.length},
+                
+                \x1b[36m\x1b[1m\x1b[4mModded Data:
+
+                    \x1b[35m\x1b\x1bbFakeNotes: ${file.customData.fakeColorNotes.length},
+                    \x1b[35m\x1b\x1bbFakeWalls: ${file.customData.fakeObstacles.length},
+                    \x1b[35m\x1b\x1bbFakeBombNotes: ${file.customData.fakeBombNotes.length},
+                    \x1b[35m\x1b\x1bbEnvironmentObjects: ${file.customData.environment.length},
+                    \x1b[35m\x1b\x1bbCustomEvents: ${file.customData.customEvents.length}
+            `)
+        }
+
+        if(log && log.vannilaData == true) {
+            console.log(`
+            \x1b[36m\x1b[4m\x1b[1mVanilla Data: 
+
+                \x1b[35m\x1b\x1bbNotes: ${file.colorNotes.length},
+                \x1b[35m\x1b\x1bbWalls: ${file.obstacles.length}
+                \x1b[35m\x1b\x1bbBombNotes: ${file.bombNotes.length},
+                \x1b[35m\x1b\x1bbChains: ${file.burstSliders.length},
+                \x1b[35m\x1b\x1bbArcs: ${file.sliders.length},
+                \x1b[35m\x1b\x1bbLightEvents: ${file.basicBeatmapEvents.length}
+            `)
+        }
+
+        if(log && log.customData == true) {
+            console.log(`
+            \x1b[36m\x1b[1m\x1b[4mModded Data:
+
+                \x1b[35m\x1b\x1bbFakeNotes: ${file.customData.fakeColorNotes.length},
+                \x1b[35m\x1b\x1bbFakeWalls: ${file.customData.fakeObstacles.length},
+                \x1b[35m\x1b\x1bbFakeBombNotes: ${file.customData.fakeBombNotes.length},
+                \x1b[35m\x1b\x1bbEnvironmentObjects: ${file.customData.environment.length},
+                \x1b[35m\x1b\x1bbCustomEvents: ${file.customData.customEvents.length}
+            `)
+        }
+    }
+
     config(config: mapConfig) {
 
         this.settings._mirrorGraphicsSettings = config.settings?.mirrorQuality
