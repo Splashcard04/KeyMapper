@@ -12,6 +12,9 @@ export class bombBuilder {
     */
     constructor(time: number) { this.json.b = time; return this }
 
+    /**The time of the bomb object */
+    time(time: number) { this.json.b = time; return this }
+
     /**is the bomb fake? */
     fake(fake: boolean) { this.config.fake = fake; return this }
     /**is the bomb interactable? */
