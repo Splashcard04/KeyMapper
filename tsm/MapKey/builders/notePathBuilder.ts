@@ -32,7 +32,6 @@ export class notePathBuilder {
     }
 
     push() {
-        activeDiff().customData.customEvents.push(this.d.d)
         notesBetween(this.d.time, this.d.timeEnd, x => {
             if(x.toJson().x == 0 || x.toJson().x == 1) {
                 x.track(this.d.trackL)
