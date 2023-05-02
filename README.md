@@ -5,12 +5,12 @@ Welcome to KeyMapper!  This tool offers many utilites for creating BeatSaber mod
 ```js
 diff.customData.environment.push(
    {
-      "id": "Sun$"
-      "lookupMethod": "Regex"
+      "id": "Sun$",
+      "lookupMethod": "Regex",
       "duplicate": 1,
       "position": [
          40, 50, 100
-      ]
+      ],
       "components": {
          "ILightWithId": {
             "lightID": 100
