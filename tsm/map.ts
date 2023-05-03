@@ -1,4 +1,5 @@
-import { Json, reqMods, suggestMods, Vec3, envs } from './types.ts'
+import { Json, reqMods, suggestMods, Vec3 } from './types.ts'
+import { log } from './internal.ts'
 
 export let file = JSON.parse(Deno.readTextFileSync('ExpertPlusLawless.dat'))
 
@@ -16,7 +17,7 @@ type mapConfig = {
     mapSubName?: string,
     colorLeft?: Vec3,
     colorRight?: Vec3,
-    environment?: envs
+    environment?: string
     reduceDebris?: boolean,
     noHud?: boolean,
     hideSpawnEffect?: boolean
@@ -39,10 +40,10 @@ export class Map {
     settings: Json = {}
 
     log(log?: logType) {
+        console.log(`\x1b[4m\u001b[1mMap Data`)
         if(!log || !log.customData && !log.customData) {
             console.log(`
             ______________________________________________________________________
-            \x1b[4m\u001b[1mMap Data
                 \n
                 \x1b[36m\x1b[4m\x1b[1mVanilla Data: 
 
@@ -91,7 +92,7 @@ export class Map {
 
     config(config: mapConfig) {
 
-        this.settings._mirrorGraphicsSettings = config.settings?.mirrorQuality
+        this.settings._mirrorGraphicsSettings = config.mirrorQuality
 
         const format = config.formatJsonFile ?? false
         if(format == true) this.configuration.formatFile = true
@@ -127,22 +128,24 @@ export class Map {
             Deno.writeTextFileSync(this.configuration.output, JSON.stringify(this.configuration.file, null, 0))
         }
         Deno.writeTextFileSync('Info.dat', JSON.stringify(this.configuration.infoFile, null, 4))
+
+        log(`${this.configuration.output} sucesfully saved!`, 'success')
     }
 
-    get notes() { return this.configuration.file.colorNotes }
-    get walls() { return this.configuration.file.obstacles }
-    get bombs() { return this.configuration.file.bombNotes }
-    get arcs() { return this.configuration.file.sliders }
-    get chains() { return this.configuration.file.burstSliders }
-    get lightEvents() { return this.configuration.file.basicBeatmapEvents }
+    get notes() { return this.configuration.file.colorNotes as Array<Json> }
+    get walls() { return this.configuration.file.obstacles as Array<Json> }
+    get bombs() { return this.configuration.file.bombNotes as Array<Json> }
+    get arcs() { return this.configuration.file.sliders as Array<Json> }
+    get chains() { return this.configuration.file.burstSliders as Array<Json> }
+    get lightEvents() { return this.configuration.file.basicBeatmapEvents as Array<Json> }
 
-    get environment() { return this.configuration.file.customData.environment }
-    get customEvents() { return this.configuration.file.customData.customEvents }
-    get fakeNotes() { return this.configuration.file.customData.fakeColorNotes }
-    get fakeWalls() { return this.configuration.file.customData.fakeObstacles }
-    get fakeBombs() { return this.configuration.file.customData.fakeBombNotes }
+    get environment() { return this.configuration.file.customData.environment as Array<Json> }
+    get customEvents() { return this.configuration.file.customData.customEvents as Array<Json> }
+    get fakeNotes() { return this.configuration.file.customData.fakeColorNotes as Array<Json> }
+    get fakeWalls() { return this.configuration.file.customData.fakeObstacles as Array<Json> }
+    get fakeBombs() { return this.configuration.file.customData.fakeBombNotes as Array<Json> }
 
-    get materials() { return this.configuration.file.customData.materials }
+    get materials() { return this.configuration.file.customData.materials as Array<Json> }
 }
 
 export function activeDiff() {
