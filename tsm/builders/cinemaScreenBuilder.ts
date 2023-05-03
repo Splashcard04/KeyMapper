@@ -63,23 +63,21 @@ export class cinemaScreenBuilder {
     vignetteRadius(radius: number) { this.json.vignette.radius = radius; return this }
     vignetteSoftness(softness: number) { this.json.vignette.softness = softness; return this }
 
-    addScreen(settings: { position: Vec3, rotation: Vec3 }) {
-        this.json.additionalScreens.push({
-            position: {
-                'x': settings.position[0], 'y': settings.position[1], 'z': settings.position[2]
-            },
-            rotation: {
-                'x': settings.rotation[0], 'y': settings.rotation[1], 'z': settings.rotation[2]
-            }
+    addScreens(...settings: { position: Vec3, rotation: Vec3 }[]) {
+        settings.forEach(x => {
+            this.json.additionalScreens.push({
+                position: { x: x.position[0], y: x.position[1], z: x.position[2] },
+                rotation: { x: x.rotation[0], y: x.position[1], z: x.position[2] }
+            })
         })
 
         return this
     }
 
-    setScreens(settings: { position: Vec3, rotation: Vec3 }[] ) {
-        const screens: Array<Json> = []
-        settings.forEach(x => {
-            screens.push({
+    setScreens(...screens: { position: Vec3, rotation: Vec3 }[] ) {
+        const screen: Array<Json> = []
+        screens.forEach(x => {
+            screen.push({
                     'position': {
                         'x': x.position[0],
                         'y': x.position[1],
