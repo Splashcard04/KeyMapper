@@ -104,11 +104,6 @@ export enum cutDirection {
     any
 }
 
-export enum noteType {
-    red,
-    blue
-}
-
 type base<T extends string> = `Easy${T}` | `Normal${T}` | `Hard${T}` | `Expert${T}` | `ExpertPlus${T}`
 
 export type paths = base<"Standard"> | base<"Lawless"> |  base<"NoArrows"> | base<"OneSaber"> | base<"360Degree"> | base<"90Degree">
