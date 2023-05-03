@@ -1,4 +1,7 @@
-export enum noteType { red, blue }
+import { activeDiff } from "./map.js";
+import { Json } from "./types.ts";
+
+export enum NoteType { red, blue }
 
 export enum lightType {
 	backLasers = 0,
@@ -14,9 +17,21 @@ export enum lightType {
 	gagaRight = 19,
 }
 
-export enum lightEvent {
+export enum lightEventType {
     off = 0,
     on = 1,
     fade = 2,
     flash = 3
+}
+
+export enum cutDirection {
+    up,
+    down,
+    left,
+    right,
+    upLeft,
+    upRight,
+    downLeft,
+    downRight,
+    any
 }
