@@ -1,5 +1,6 @@
-import { Json, reqMods, suggestMods, Vec3 } from './types.ts'
+import { Json, reqMods, suggestMods, Vec3, paths } from './types.ts'
 import { log } from './internal.ts'
+import { compress } from "https://deno.land/x/zip@v1.2.3/mod.ts";
 
 export let file = JSON.parse(Deno.readTextFileSync('ExpertPlusLawless.dat'))
 
@@ -25,7 +26,7 @@ type mapConfig = {
 
 export class Map {
     configuration: Json = {}
-    constructor(input: string, output: string) {
+    constructor(input: paths, output: paths) {
         this.configuration.input = input+'.dat'
         this.configuration.output = output+'.dat'
         file = JSON.parse(Deno.readTextFileSync(this.configuration.input))
@@ -130,6 +131,24 @@ export class Map {
         Deno.writeTextFileSync('Info.dat', JSON.stringify(this.configuration.infoFile, null, 4))
 
         log(`${this.configuration.output} sucesfully saved!`, 'success')
+    }
+
+    export(filenames: paths| Array<paths>) {
+        const dir = Deno.cwd();
+        const name = this.configuration.infoFile._songName+`.zip`.replaceAll(" ", "-")
+        let files = Array<paths>
+
+        if(typeof filenames == 'string') {
+            files.push(filenames+'.dat')
+        } else {
+            filenames.forEach(x => {
+                files.push(x+'.dat')
+            })
+        }
+
+        compress(files, name, { overwrite: true }).then(() => {
+            log(`Files: ${filenames.toString()} succesfully zipped in ${name}`)
+        })
     }
 
     get notes() { return this.configuration.file.colorNotes as Array<Json> }
