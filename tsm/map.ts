@@ -136,7 +136,7 @@ export class Map {
     export(filenames: paths| Array<paths>) {
         const dir = Deno.cwd();
         const name = this.configuration.infoFile._songName+`.zip`.replaceAll(" ", "-")
-        let files = Array<paths>
+        let files: string[] = []
 
         if(typeof filenames == 'string') {
             files.push(filenames+'.dat')
