@@ -7,8 +7,8 @@ import { animateTrackBuilder } from './animateTrackBuilder.ts'
 type groupType = geometryBuilder | WallBuilder | environmentBuilder
 
 export class modelBuilder {
-    c: Json = {}
-    a: Array<{
+    private c: Json = {}
+    private a: Array<{
         track: string,
         object: groupType
     }> = []
