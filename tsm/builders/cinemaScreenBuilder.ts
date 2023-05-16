@@ -2,6 +2,44 @@ import { Json, Vec3 } from '../types.ts'
 
 type cinemaLookup = "URL" | "youtubeID"
 
+export class additionalScreenBuilder {
+    json: Json = {
+        position: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        }
+    }
+    
+    position(position: Vec3) {
+        this.json.position = {
+            'x': position[0],
+            'y': position[1],
+            'z': position[2]
+        }
+        return this
+    }
+
+    rotation(rotation: Vec3) {
+        this.json.rotation = {
+            'x': rotation[0],
+            'y': rotation[1],
+            'z': rotation[2]
+        }
+        return this
+    }
+
+    push() {
+        return this.json as { position: Vec3, rotation: Vec3 }
+    }
+
+}
+
 export class cinemaScreenBuilder {
     json: Json = {}
 
@@ -63,7 +101,7 @@ export class cinemaScreenBuilder {
     vignetteRadius(radius: number) { this.json.vignette.radius = radius; return this }
     vignetteSoftness(softness: number) { this.json.vignette.softness = softness; return this }
 
-    addScreens(...settings: { position: Vec3, rotation: Vec3 }[]) {
+    addScreens(...settings: { position: Vec3, rotation: Vec3 }[] | extraScreenBuilder[]) {
         settings.forEach(x => {
             this.json.additionalScreens.push({
                 position: { x: x.position[0], y: x.position[1], z: x.position[2] },

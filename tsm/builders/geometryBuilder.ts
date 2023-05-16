@@ -1,15 +1,6 @@
 import { activeDiff } from '../map.ts'
 import { Json, Vec4, Vec3, shader } from '../types.ts'
 
-type geometryType = "Cube" | "Triangle" | "Quad" | "Cyliner" | "Capsule" | "Sphere"
-
-export type materialType = {
-    shader: shader,
-    color?: Vec4,
-    shaderKeywords?: [],
-    track?: ""
-} | string
-
 export class geometryBuilder {
     json: Json = {
         geometry: {

@@ -107,3 +107,14 @@ export enum cutDirection {
 type base<T extends string> = `Easy${T}` | `Normal${T}` | `Hard${T}` | `Expert${T}` | `ExpertPlus${T}`
 
 export type paths = base<"Standard"> | base<"Lawless"> |  base<"NoArrows"> | base<"OneSaber"> | base<"360Degree"> | base<"90Degree">
+
+export type lookup = "Contains" | "Regex" | "Exact" | "StartsWith" | "EndsWith"
+
+export type shape = "Cube" | "Triangle" | "Quad" | "Cyliner" | "Capsule" | "Sphere"
+
+export type materialType = {
+    shader: shader,
+    color?: Vec4,
+    shaderKeywords?: [],
+    track?: ""
+} | string
