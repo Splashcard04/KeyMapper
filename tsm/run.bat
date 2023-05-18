@@ -6,7 +6,7 @@ IF EXIST "script.ts" (
     echo "script.ts found..."
 ) ELSE (
     echo "Downloading script.ts..."
-    curl -o script.ts https://raw.githubusercontent.com/TeamScripters/TeamScript/main/script.ts
+    curl -o script.ts https://raw.githubusercontent.com/Splashcard04/KeyMapper/main/files/script.ts
 )
 
 cls 
