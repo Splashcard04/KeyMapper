@@ -32,7 +32,41 @@ type cinemaScreenType = {
     vignetteType?: "elliptical" | "rectangular",
     vignetteRadius?: number,
     vignetteSoftness?: number,
-    extraScreens?: { position: Vec3, rotation: Vec3 }[]
+    extraScreens?: { position: Vec3, rotation: Vec3 }[] | additionalScreen[]
+}
+
+type additionalScreenType = {
+    position: Vec3,
+    rotation: Vec3
+}
+
+export class additionalScreen {
+    private json: Json = {
+        position: {
+            x: 0,
+            y: 0,
+            z: 0
+        },
+        rotation: {
+            x: 0,
+            y: 0,
+            z: 0
+        }
+    }
+
+    constructor(x: additionalScreenType) {
+        this.json.position = {
+            x: x.position[0],
+            y: x.position[1],
+            z: x.position[2]
+        }
+        this.json.rotation = {
+            x: x.rotation[0],
+            y: x.rotation[1],
+            z: x.rotation[2]
+        }
+        return this.json as additionalScreen
+    }
 }
 
 export class cinemaScreen {
