@@ -1,9 +1,8 @@
+import { animateTrackBuilder } from "../builders/animateTrackBuilder";
 import { activeDiff } from "../map";
 import { Json } from "../types";
-import { animateTrack } from "./animateTrack.ts";
 import { Environment } from "./Environment.ts";
 import { Geometry } from "./Geometry.ts";
-import { Wall } from "./Wall.ts";
 
 type modelSettings = {
     object: Geometry | Environment,
@@ -12,6 +11,7 @@ type modelSettings = {
 }
 
 export class Model {
+    config: Json = {}
     constructor(public settings: modelSettings) {
         this.settings = settings
         return this
@@ -45,5 +45,43 @@ export class Model {
                 })
             })
         }
+    }
+
+    animate(...switches: [string, number, number][]) {
+        switches.forEach(x => {
+            const file = JSON.parse(Deno.readTextFileSync(x[0]+'.rmmodel'))
+
+            file.objects.forEach((y: Json) => {
+
+
+                    const hash = [Math.floor(Math.random() * 10) * 15 - Math.floor(Math.random() * -3)].toString()
+
+                    new animateTrackBuilder(`Model${hash}`, x[1], x[2])
+                    .position([[-9999, -9999, -9999, -0.0001], y.pos, [-9999, -9999, -9999, 1.000001]])
+                    .localRotation(y.rot)
+                    .scale(y.scale)
+                    .push()
+
+                    this.settings.primaryTrackGroups.forEach(z => {
+                        if(z.track == y.track) {
+                            const obj = z.object.toJson()
+                            obj.position = y.pos
+                            obj.localRotation = y.rot
+                            obj.scale = y.scale
+                            obj.track = `Model${hash}`
+                            activeDiff().cutomData.environment.push(obj)
+                        } else {
+                            const obj = this.settings.object.toJson()
+                            obj.position = y.pos
+                            obj.localRotation = y.rot
+                            obj.scale = y.scale
+                            obj.track = `Model${hash}`
+                            activeDiff().cutomData.environment.push(obj)
+                        }
+                    })
+
+                
+            })
+        })
     }
 }
