@@ -18,13 +18,15 @@ export enum lightType {
 }
 
 export enum lightEventType {
-    off = 0,
-    on = 1,
-    fade = 2,
-    flash = 3
+    /**enum for light event values */
+    off,
+    on,
+    fade,
+    flash
 }
 
 export enum cutDirection {
+    /**enum for note cut direction */
     up,
     down,
     left,
@@ -35,3 +37,51 @@ export enum cutDirection {
     downRight,
     any
 }
+
+
+export const Env = {
+    /**Environment ID constants for commonly used environment objects */
+    BTS: {
+        doorLight: "MagicDoorSprite",
+		upperClouds: "HighCloudsGenerator$",
+		lowerClouds: "LowCloudsGenerator$",
+		allClouds: "Clouds$",
+    },
+    Billie: {
+        directionalLight: "Day\\.\\[\\d+\\]\\w+Front$",
+		solidLaser: "\\w+\\.\\[\\d+\\]\\w+L\\.\\[\\d+\\]\\w+L\\.\\[\\d+\\]\\w+LH$",
+		sun: "Sun$",
+		clouds: "Clouds$",
+		smoke: "BigSmokePS$",
+		railLight: "t\\.\\[\\d+\\]Neon\\w+L$",
+		rain: "Rain$",
+    },
+    Gaga: {
+        Aurora: "AuroraSecondary$",
+		Lightning: "1L\\.\\[\\d+\\]\\w+\\.\\[\\d+\\]LightningWithTarget$",
+		solidLaser: "FrontLaserL$",
+		directionalLight: "DirectionalLightFront$",
+		gagaLogo: "[^Logo]{4}\\.\\[\\d+\\]Logo$",
+    },
+    Spooky: {
+        Moon: "Moon$",
+        Tree: "Tree1 \\(\\1\\)$",
+        Tree2: "Tree2 \\(\\1\\)$",
+        Grave: "Grave$",
+        Grave2: "Grave1$",
+        Hand: "\\[\\158\\]ZombieHand \\(1\\)",
+        Castle: "Castle$",
+        Crow: "\\[\\156\\]Crow\\.\\[\\0]Crow$"
+    },
+    Rocket: {
+        CarL: "RocketCarL$",
+        CarR: "RocketCarR$"
+    },
+    All: {
+        cinemaScreen: "CinemaScreen$",
+		cinemaDirLight: "CinemaDirectionalLight$",
+		mirror: "Place\\.\\[\\d+\\]Mirror$",
+		playerPlatform: "PlayersPlace$",
+    }
+}
+

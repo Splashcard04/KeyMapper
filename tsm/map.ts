@@ -1,4 +1,4 @@
-import { Json, reqMods, suggestMods, Vec3, paths } from './types.ts'
+import { Json, reqMods, suggestMods, Vec3, paths, materialType } from './types.ts'
 import { log } from './internal.ts'
 import { compress } from "https://deno.land/x/zip@v1.2.3/mod.ts";
 
@@ -164,7 +164,7 @@ export class Map {
     get fakeWalls() { return this.configuration.file.customData.fakeObstacles as Array<Json> }
     get fakeBombs() { return this.configuration.file.customData.fakeBombNotes as Array<Json> }
 
-    get materials() { return this.configuration.file.customData.materials as Array<Json> }
+    get materials() { return this.configuration.file.customData.materials as Record<string, any> }
 }
 
 export function activeDiff() {
