@@ -1,4 +1,4 @@
-import { activeDiff } from "./map.js";
+import { activeDiff } from "./map.ts";
 import { Json } from "./types.ts";
 
 export enum NoteType { red, blue }
