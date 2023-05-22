@@ -118,3 +118,63 @@ export type materialType = {
     shaderKeywords?: [],
     track?: ""
 } | string
+
+//Map get() method types
+export type defaultNoteJson = {
+    b: number,
+    x: 0 | 1 | 2 | 3,
+    y: 0 | 1 | 2,
+    c: 1 | 0,
+    d: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | cutDirection,
+    a: number,
+    customData?: customDataType | Json
+}
+
+export type defaultObstacleJson = {
+    b: number,
+    d: number,
+    x: 0 | 1 | 2 | 3,
+    y: 0 | 1 | 2,
+    w: 0 | 1 | 2 | 3,
+    h: 0 | 1 | 2,
+    customData?: customDataType | Json
+}
+
+export type defaultBombJson = {
+    b: number,
+    x: 0 | 1 | 2 | 3,
+    y: 0 | 1 | 2,
+    customData: customDataType | Json
+}
+
+export type defaultArcJson = {
+    b: number,
+    c: number,
+    x: number,
+    y: number,
+    d: number,
+    mu: number,
+    tb: number,
+    tx: number,
+    ty: number,
+    tc: number,
+    tmu: number,
+    m: number,
+    customData: customDataType | Json
+}
+
+export type defaultChainJson = {
+    b: number,
+    x: number,
+    y: number,
+    c: number,
+    d: number,
+    tb: number,
+    tx: number,
+    ty: number,
+    sc: number,
+    s: number,
+    customData: customDataType | Json
+}
+
+export type defaultMaterialJson = Record<any, materialType>

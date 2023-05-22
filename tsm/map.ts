@@ -1,4 +1,4 @@
-import { Json, reqMods, suggestMods, Vec3, paths, materialType } from './types.ts'
+import { Json, reqMods, suggestMods, Vec3, paths, materialType, configType, defaultNoteJSon ,defaultArcJson, defaultBombJson, defaultChainJson, defaultMaterialJson, defaultObstacleJson, defaultNoteJson } from './types.ts'
 import { log } from './internal.ts'
 import { compress } from "https://deno.land/x/zip@v1.2.3/mod.ts";
 
@@ -8,6 +8,7 @@ type logType = {
     customData?: boolean,
     vannilaData?: boolean
 }
+
 
 type mapConfig = {
     formatJsonFile?: boolean,
@@ -159,21 +160,22 @@ export class Map {
         })
     }
 
-    get notes() { return this.configuration.file.colorNotes as Array<Json> }
-    get walls() { return this.configuration.file.obstacles as Array<Json> }
-    get bombs() { return this.configuration.file.bombNotes as Array<Json> }
-    get arcs() { return this.configuration.file.sliders as Array<Json> }
-    get chains() { return this.configuration.file.burstSliders as Array<Json> }
+    get notes() { return this.configuration.file.colorNotes as Array<defaultNoteJson> }
+    get walls() { return this.configuration.file.obstacles as Array<defaultObstacleJson> }
+    get bombs() { return this.configuration.file.bombNotes as Array<defaultBombJson> }
+    get arcs() { return this.configuration.file.sliders as Array<defaultArcJson> }
+    get chains() { return this.configuration.file.burstSliders as Array<defaultChainJson> }
     get lightEvents() { return this.configuration.file.basicBeatmapEvents as Array<Json> }
 
     get environment() { return this.configuration.file.customData.environment as Array<Json> }
     get customEvents() { return this.configuration.file.customData.customEvents as Array<Json> }
-    get fakeNotes() { return this.configuration.file.customData.fakeColorNotes as Array<Json> }
-    get fakeWalls() { return this.configuration.file.customData.fakeObstacles as Array<Json> }
-    get fakeBombs() { return this.configuration.file.customData.fakeBombNotes as Array<Json> }
+    get fakeNotes() { return this.configuration.file.customData.fakeColorNotes as Array<defaultNoteJson> }
+    get fakeWalls() { return this.configuration.file.customData.fakeObstacles as Array<defaultObstacleJson> }
+    get fakeBombs() { return this.configuration.file.customData.fakeBombNotes as Array<defaultBombJson> }
 
-    get materials() { return this.configuration.file.customData.materials as Record<string, any> }
+    get materials() { return this.configuration.file.customData.materials as defaultMaterialJson }
 }
+
 
 export function activeDiff() {
     return file
