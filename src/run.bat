@@ -19,7 +19,7 @@ if exist "kmconfig.ini" (
 )
 
 IF EXIST "script.ts" (
-    ::Literally just does nothing again 💀
+    ::Literally just does nothing 💀
     cls 
 ) ELSE (
     ::copy the script.ts file directly from /files/script.ts into map dir
