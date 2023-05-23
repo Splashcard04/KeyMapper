@@ -10,8 +10,12 @@ if exist "kmconfig.ini" (
 
 ) else (
     echo Keymapper Setup:
-    set /p "cl=Clear Console On Refresh? (y/n)"
-    echo clr=%cl% >> kmconfig.ini
+    set /p "clr=Clear Console On Refresh? (y/n)"
+    if %clr% = "y" do (
+        echo clr=true >> "kmconfig.ini"
+    ) else (
+        echo clr=false >> "kmconfig.ini"
+    )
 )
 
 IF EXIST "script.ts" (
