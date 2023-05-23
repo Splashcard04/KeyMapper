@@ -9,6 +9,7 @@ export class environmentBuilder {
     constructor(id?: string, lookup?: lookup) {
         this.json.id = id ?? "Thing"
         this.json.lookupMethod = lookup ?? "Regex"
+        return this
     }
 
     id(id: string) { this.json.id = id; return this }
@@ -27,6 +28,7 @@ export class environmentBuilder {
         }
         if(!this.json.components.ILightWithId) this.json.components.ILightWithId = { lightID: id }
         this.json.components.ILightWithId.lightID = id
+        return this
     }
     lightType(type: number) {
         if(!this.json.components || this.json.components == {}) {
@@ -34,6 +36,7 @@ export class environmentBuilder {
         }
         if(!this.json.components.ILightWithId) this.json.components.ILightWithId = { type: type }
         this.json.components.ILightWithId.type = type
+        return this
     }
 
     /**returns the environment object as json */
@@ -41,5 +44,6 @@ export class environmentBuilder {
 
     push() {
         activeDiff().customData.environment.push(this.json)
+        return this
     }
 }
