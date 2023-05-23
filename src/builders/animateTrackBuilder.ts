@@ -61,5 +61,6 @@ export class animateTrackBuilder {
     /**push the animate track to the output file */
     push() {
         activeDiff().customData.customEvents.push(this.json)
+        return this
     }
 }

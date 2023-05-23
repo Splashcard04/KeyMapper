@@ -22,5 +22,7 @@ export class playerAnimationBuilder {
         } else {
             log(`No modifications were provided for track at ${this.time}, the player was not assigned to a track`, "warn")
         }
+
+        return this
     }
 }

@@ -48,6 +48,8 @@ export class despawnerBuilder {
             .position([-9999, -9999, -9999])
             .push()
         })
+
+        return this
     }
 
 }

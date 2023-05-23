@@ -60,5 +60,6 @@ export class arcBuilder {
 
     push() {
         activeDiff().sliders.push(this.json)
+        return this
     }
 }

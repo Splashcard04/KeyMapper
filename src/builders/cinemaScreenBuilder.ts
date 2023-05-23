@@ -137,5 +137,6 @@ export class cinemaScreenBuilder {
 
     push() {
         Deno.writeTextFileSync('cinema-video.json', JSON.stringify(this.json, null, 4))
+        return this
     }
 }

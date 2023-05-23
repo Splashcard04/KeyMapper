@@ -36,5 +36,6 @@ export class geometryBuilder {
 
     push() {
         activeDiff().customData.environment.push(this.json)
+        return this
     }
 }

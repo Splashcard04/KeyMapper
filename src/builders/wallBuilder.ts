@@ -65,6 +65,7 @@ export class WallBuilder {
         } else {
             activeDiff().obstacles.push(this.json)
         }
+        return this
     }
 
 }

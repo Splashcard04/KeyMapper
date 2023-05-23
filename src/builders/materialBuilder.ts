@@ -20,5 +20,6 @@ export class materialBuilder {
     
     push() {
         activeDiff().customData.materials[this.config.name] = this.json
+        return this
     }
 }

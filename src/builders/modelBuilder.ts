@@ -1,6 +1,6 @@
 import { Json } from '../types.ts'
 import { environmentBuilder } from './environmentBuilder.ts'
-import { geometryBuilder, materialType } from './geometryBuilder.ts'
+import { geometryBuilder } from './geometryBuilder.ts'
 import { WallBuilder } from './wallBuilder.ts'
 import { animateTrackBuilder } from './animateTrackBuilder.ts'
 
@@ -45,6 +45,8 @@ export class modelBuilder {
                 }
             })
         })
+
+        return this
     }
 
     animate(...switches: [path: string, time: number, timeEnd: number][]) {
@@ -91,6 +93,7 @@ export class modelBuilder {
                 
             })
         })
+        return this
     }
 
 

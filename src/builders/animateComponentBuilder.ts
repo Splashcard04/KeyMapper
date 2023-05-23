@@ -73,5 +73,6 @@ export class animateComponentBuilder {
         if(this.config.track) {
             activeDiff().customData.environment.push({"id":"[0]Environment","lookupMethod":"EndsWith","track":this.config.track})
         }
+        return this
     }
 }

@@ -61,5 +61,6 @@ export class chainBuilder {
         } else {
             activeDiff().customData.fakeBurstSliders.push(this.json)
         }
+        return this
     }
 }

@@ -12,5 +12,7 @@ export class pointDefinitionBuilder {
 
     push() {
         activeDiff().customData.pointDefinitions[this.config.name] = this.config.keyframes ?? [[0,0],[0,1]]
+        return this
     }
+
 }

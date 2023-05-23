@@ -39,6 +39,8 @@ export class notePathBuilder {
                 x.track(this.d.trackR)
             }
         })
+
+        return this
     }
 
 }
