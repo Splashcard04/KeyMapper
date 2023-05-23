@@ -6,7 +6,6 @@ if exist "kmconfig.ini" (
 
     for /f "tokens=1,2 delims==" %%a in (settings.ini) do (
     if %%a==clr set %%a=%%b
-    if %%a==lastName set %%a=%%b
     )
 
 ) else (
