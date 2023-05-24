@@ -1,4 +1,3 @@
-import { paths } from "./types.ts";
 import { activeDiff } from "./map.ts";
 import { animateComponentBuilder } from "./builders/animateComponentBuilder.ts";
 import { noteBuilder } from "./builders/noteBuilder.ts";
@@ -37,12 +36,12 @@ export function notesBetween(time: number, timeEnd: number, forNote: (n: noteBui
      * @param { timeEnd } timeEnd the time to stop applying custom data to notes
      * @param { noteBuilder } forNote the data to apply to each note
      */
-    activeDiff().colorNotes.forEach(x => {
+    activeDiff().colorNotes.forEach((x: any) => {
         if(x.b >= time && x.b <= timeEnd) {
             forNote(x)
         }
     })
-    activeDiff().customData.fakeColorNotes.forEach(x => {
+    activeDiff().customData.fakeColorNotes.forEach((x: any) => {
         if(x.b >= time && x.b <= timeEnd) {
             forNote(x)
         }
@@ -56,13 +55,13 @@ export function chainsBetween(time: number, timeEnd: number, forChain: (c: chain
      * @param { timeEnd } timeEnd the time to stop applying custom data to chains
      * @param { chainBuilder } forChain the data to apply to each chain
      */
-    activeDiff().burstSliders.forEach(x => {
+    activeDiff().burstSliders.forEach((x: any) => {
         if(x.b >= time && x.b <= timeEnd) {
             forChain(x)
         }
     })
 
-    activeDiff().customData.fakeBurstSliders.forEach(x => {
+    activeDiff().customData.fakeBurstSliders.forEach((x: any) => {
         if(x.b >= time && x.b <= timeEnd) {
             forChain(x)
         }
@@ -76,12 +75,12 @@ export function bombsBetween(time: number, timeEnd: number, forBomb: (b: bombBui
      * @param { timeEnd } timeEnd the time to stop applying custom data to bombs
      * @param { bombBuilder } forBomb the data to apply to each bomb
      */
-    activeDiff().bombNotes.forEach(x => {
+    activeDiff().bombNotes.forEach((x: any) => {
         if(x.b >= time && x.b <= timeEnd) {
             forBomb(x)
         }
     })
-    activeDiff().customData.fakeBombNotes.forEach(x => {
+    activeDiff().customData.fakeBombNotes.forEach((x: any) => {
         if(x.b >= time && x.b <= timeEnd) {
             forBomb(x)
         }
@@ -95,7 +94,7 @@ export function arcsBetween(time: number, timeEnd: number, forArc: (a: arcBuilde
      * @param { timeEnd } timeEnd the time to stop applying custom data to arcs
      * @param { arcBuilder } forArc the data to apply to each arc
      */
-    activeDiff().sliders.forEach(x => {
+    activeDiff().sliders.forEach((x: any) => {
         if(x.b >= time && x.b <= timeEnd) {
             forArc(x)
         }
@@ -109,13 +108,13 @@ export function wallsBetween(time: number, timeEnd: number, forWall: (w: WallBui
      * @param { timeEnd } timeEnd the time to stop applying custom data to walls
      * @param { WallBuilder } forWall the data to apply to each wall
      */
-    activeDiff().obstacles.forEach(x => {
+    activeDiff().obstacles.forEach((x: any) => {
         if(x.b >= time && x.b <= timeEnd) {
             forWall(x)
         }
     })
 
-    activeDiff().customData.fakeObstacles.forEach(x => {
+    activeDiff().customData.fakeObstacles.forEach((x: any) => {
         if(x.b >= time && x.b <= timeEnd) {
             forWall(x)
         }
