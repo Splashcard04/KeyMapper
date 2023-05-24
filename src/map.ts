@@ -1,5 +1,5 @@
-import { Json, reqMods, suggestMods, Vec3, paths, materialType, configType, defaultNoteJSon ,defaultArcJson, defaultBombJson, defaultChainJson, defaultMaterialJson, defaultObstacleJson, defaultNoteJson } from './types.ts'
-import { log } from './internal.ts'
+import { Json, reqMods, suggestMods, Vec3, paths, materialType, configType, defaultArcJson, defaultBombJson, defaultChainJson, defaultMaterialJson, defaultObstacleJson, defaultNoteJson, defaultCustomEventJson, defaultLightEventJson, defaultEnvironmentJson } from './types.ts'
+import { log, beatmapFile } from './internal.ts'
 import { compress } from "https://deno.land/x/zip@v1.2.3/mod.ts";
 
 export let file = JSON.parse(Deno.readTextFileSync('ExpertPlusLawless.dat'))
@@ -118,10 +118,10 @@ export class Map {
     get bombs() { return this.configuration.file.bombNotes as Array<defaultBombJson> }
     get arcs() { return this.configuration.file.sliders as Array<defaultArcJson> }
     get chains() { return this.configuration.file.burstSliders as Array<defaultChainJson> }
-    get lightEvents() { return this.configuration.file.basicBeatmapEvents as Array<Json> }
+    get lightEvents() { return this.configuration.file.basicBeatmapEvents as Array<defaultLightEventJson> }
 
-    get environment() { return this.configuration.file.customData.environment as Array<Json> }
-    get customEvents() { return this.configuration.file.customData.customEvents as Array<Json> }
+    get environment() { return this.configuration.file.customData.environment as Array<defaultEnvironmentJson> }
+    get customEvents() { return this.configuration.file.customData.customEvents as Array<defaultCustomEventJson> }
     get fakeNotes() { return this.configuration.file.customData.fakeColorNotes as Array<defaultNoteJson> }
     get fakeWalls() { return this.configuration.file.customData.fakeObstacles as Array<defaultObstacleJson> }
     get fakeBombs() { return this.configuration.file.customData.fakeBombNotes as Array<defaultBombJson> }
@@ -131,5 +131,5 @@ export class Map {
 
 
 export function activeDiff() {
-    return file
+    return file as beatmapFile //make more accessible throughout the library
 }

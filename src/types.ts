@@ -167,4 +167,25 @@ export type defaultChainJson = {
     customData: customDataType | Json
 }
 
+export type defaultLightEventJson = {
+    b: number,
+    et: number,
+    i: number,
+    f: number,
+    customData: Record<string, any> | customDataType
+}
+
+export type defaultCustomEventJson = {
+    b: number,
+    t: number,
+    d: Record<string, any> | customDataType
+}
+
+export type defaultEnvironmentJson = Record<string, any> | {
+    id: string,
+    lookup: lookup,
+    duplicate: number,
+    active: boolean
+}
+
 export type defaultMaterialJson = Record<any, materialType>
