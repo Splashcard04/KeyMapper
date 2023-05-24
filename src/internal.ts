@@ -9,7 +9,7 @@ export function log(message: string, errorValue?: 'error' | 'warn' | 'success') 
     if(errorValue == 'error') color = `\x1b[1m\x1b[31m`
     if(errorValue == 'warn') color = `\x1b[1m\x1b[33m`
     if(errorValue == 'success') color = `\x1b[1m\x1b[32m`
-    console.log(`${color}${message}\x1b[1m\x1b[37m`)
+    console.log(`${color}[KeyMapper]: ${message}\x1b[1m\x1b[37m`)
 }
 
 export type beatmapFile = {

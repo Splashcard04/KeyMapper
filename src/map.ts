@@ -72,8 +72,10 @@ export class Map {
         if(config.mapName) this.configuration.infoFile._songName = config.mapName
         if(config.mapSubName) this.configuration.infoFile._songSubName = config.mapSubName
     }
-
+    
     end() {
+
+        console.log(`Restarting TSM...`)
 
         file.version = "3.0.0"
 
