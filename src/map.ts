@@ -1,4 +1,4 @@
-import { Json, reqMods, suggestMods, Vec3, paths, materialType, configType, defaultArcJson, defaultBombJson, defaultChainJson, defaultMaterialJson, defaultObstacleJson, defaultNoteJson, defaultCustomEventJson, defaultLightEventJson, defaultEnvironmentJson } from './types.ts'
+import { Json, reqMods, envNames, suggestMods, Vec3, paths, materialType, configType, defaultArcJson, defaultBombJson, defaultChainJson, defaultMaterialJson, defaultObstacleJson, defaultNoteJson, defaultCustomEventJson, defaultLightEventJson, defaultEnvironmentJson } from './types.ts'
 import { log, beatmapFile } from './internal.ts'
 import { compress } from "https://deno.land/x/zip@v1.2.3/mod.ts";
 
@@ -19,7 +19,7 @@ type mapConfig = {
     mapSubName?: string,
     colorLeft?: Vec3,
     colorRight?: Vec3,
-    environment?: string
+    environment?: envNames,
     reduceDebris?: boolean,
     noHud?: boolean,
     hideSpawnEffect?: boolean
@@ -72,7 +72,7 @@ export class Map {
         if(config.mapName) this.configuration.infoFile._songName = config.mapName
         if(config.mapSubName) this.configuration.infoFile._songSubName = config.mapSubName
     }
-    
+
     end() {
 
         console.log(`Restarting TSM...`)

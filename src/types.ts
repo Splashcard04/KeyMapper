@@ -51,6 +51,35 @@ export type reqMods =
 
 export type suggestMods =
     "Cinema" | "Noodle Extensions" | "Chroma" | string
+
+export type envNames =
+    "BTSEnvironment" |
+    "BigMirrorEnvironment" |
+    "BillieEnvironment" |
+    "CrabRaveEnvironment" |
+    "DefaultEnvironment" |
+    "DragonsEnvironment" |
+    "FitBeatEnvironment" |
+    "GagaEnvironment" |
+    "GreenDayEnvironment" |
+    "GreenDayGrenadeEnvironment" |
+    "InterscopeEnvironment" |
+    "KDAEnvironment" |
+    "KaleidoscopeEnvironment" |
+    "LinkinParkEnvironment" |
+    "MonstercatEnvironment" |
+    "NiceEnvironment" |
+    "OriginsEnvironment" |
+    "PanicEnvironment" |
+    "RocketEnvironment" |
+    "SkrillexEnvironment" |
+    "HalloweenEnvironment" |
+    "TimbalandEnvironment" |
+    "TriangleEnvironment" |
+    "WeaveEnvironment" |
+    "PyroEnvironment" |
+    "TheSecondEnvironment" |
+    "EDMEnvironment"
     
 export type customDataType = {
     coordinates?: Vec2,
