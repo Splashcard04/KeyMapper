@@ -75,7 +75,7 @@ export class Map {
 
     end() {
 
-        file._version = "3.0.0"
+        file.version = "3.0.0"
 
         if(this.configuration.formatFile === true) {
             Deno.writeTextFileSync(this.configuration.output, JSON.stringify(this.configuration.file, null, 4))
@@ -101,15 +101,14 @@ export class Map {
             })
         }
 
-        const y = Deno.readDirSync('./')
-        let x = [...y]
-        const song = x.filter(file => file.endsWith('.ogg'))
-        const cover = x.filter(file => file.endsWith('.png'))
+        const x = [...Deno.readDirSync('./')]
+        x.filter(file => file.endsWith('.ogg')).forEach(x => { files.push(x) })
+        x.filter(file => file.endsWith('.png')).forEach(x => { files.push(x) })
 
-        files.push(song, cover, 'info.dat')
+        files.push('info.dat')
 
         compress(files, name, { overwrite: true }).then(() => {
-            log(`Files: ${filenames.toString()} succesfully zipped in ${name}`)
+            log(`Files: ${files.join(', ')} succesfully zipped in ${name}`)
         })
     }
 
