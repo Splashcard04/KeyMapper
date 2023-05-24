@@ -87,9 +87,10 @@ export class Map {
         log(`${this.configuration.output} sucesfully saved!`, 'success')
     }
 
-    export(filenames: paths| Array<paths>) {
-        const dir = Deno.cwd();
-        const name = this.configuration.infoFile._songName+`.zip`.replaceAll(" ", "-")
+    export(filenames: paths | Array<paths>) {
+        const name = this.configuration.infoFile._songName +`.zip`
+        name.replace(/\s/g, "_")
+        
         let files: string[] = []
 
         if(typeof filenames == 'string') {
@@ -99,6 +100,13 @@ export class Map {
                 files.push(x+'.dat')
             })
         }
+
+        const y = Deno.readDirSync('./')
+        let x = [...y]
+        const song = x.filter(file => file.endsWith('.ogg'))
+        const cover = x.filter(file => file.endsWith('.png'))
+
+        files.push(song, cover, 'info.dat')
 
         compress(files, name, { overwrite: true }).then(() => {
             log(`Files: ${filenames.toString()} succesfully zipped in ${name}`)
