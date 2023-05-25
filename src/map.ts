@@ -79,15 +79,15 @@ export class Map {
     }
     
     log(log?: logType) {
-
+        const files = this.configuration.file
 
         console.log(`
-         _  __                 __  __                                       
-        | |/ /   ___   _   _  |  \/  |   __ _   _ __    _ __     ___   _ __ 
-        | ' /   / _ \ | | | | | |\/| |  / _' | |  _ \  |  _ \   / _ \ |  __|
-        | . \  |  __/ | |_| | | |  | | | (_| | | |_) | | |_) | |  __/ | |   
-        |_|\_\  \___|  \__, | |_|  |_|  \__,_| | .__/  | .__/   \___| |_|   
-                       |___/                   |_|     |_|                  
+    \x1b[35m     _  __                 __  __                                       
+    \x1b[35m    | |/ /   ___   _   _  |  \/  |   __ _   _ __    _ __     ___   _ __ 
+    \x1b[35m    | ' /   / _ \ | | | | | |\/| |  / _' | |  _ \  |  _ \   / _ \ |  __|
+    \x1b[35m    | . \  |  __/ | |_| | | |  | | | (_| | | |_) | | |_) | |  __/ | |   
+    \x1b[35m    |_|\_\  \___|  \__, | |_|  |_|  \__,_| | .__/  | .__/   \___| |_|   
+    \x1b[35m                   |___/                   |_|     |_|                  
         `)
 
         console.log(
@@ -95,33 +95,33 @@ export class Map {
         )
         if(log && log.vannilaData == true) {
             console.log(`
-                * Vanilla Data:
-                    Notes: ${file.colorNotes.length},
+            \x1b[1;36mVanilla Data:
+                    \x1b[32mNotes: ${files.colorNotes.length},
 
-                    Walls: ${file.obstacles.length},
+                    \x1b[32mWalls: ${files.obstacles.length},
 
-                    Bombs: ${file.bombNotes.length},
+                    \x1b[32mBombs: ${files.bombNotes.length},
 
-                    Chains: ${file.burstSliders.length}
+                    \x1b[32mChains: ${files.burstSliders.length}
 
-                    Arcs: ${file.sliders.length}
+                    \x1b[32mArcs: ${files.sliders.length}
             `)
         }
 
         if(log && log.customData == true) {
             console.log(`
-                * Custom Data:
-                    Fake Notes: ${file.customData.fakeColorNotes.length},
+            \x1b[1;36mCustom Data:
+                \x1b[32mFake Notes: ${files.customData.fakeColorNotes.length},
 
-                    Fake Walls: ${file.customData.fakeObstacles.length},
+                \x1b[32mFake Walls: ${files.customData.fakeObstacles.length},
 
-                    Fake Bombs: ${file.customData.fakeBombNotes.length},
+                \x1b[32mFake Bombs: ${files.customData.fakeBombNotes.length},
 
-                    Fake Chains: ${file.customData.fakeBurstSliders.length},
+                \x1b[32mFake Chains: ${files.customData.fakeBurstSliders.length},
 
-                    Environment Objects: ${file.customData.environment.length},
+                \x1b[32mEnvironment Objects: ${files.customData.environment.length},
                     
-                    Custom Events: ${ file.customData.customEvents.length}
+                \x1b[32mCustom Events: ${files.customData.customEvents.length}
             `)
         }
     }
