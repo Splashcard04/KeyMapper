@@ -78,7 +78,7 @@ export class Map {
         if(config.mapSubName) this.configuration.infoFile._songSubName = config.mapSubName
     }
     
-    log(log?: logType) {
+    log(vannilaData?: boolean, customData?: true) {
         const files = this.configuration.file
 
         console.log(`
@@ -93,7 +93,7 @@ export class Map {
         console.log(
             `============[${this.configuration.infoFile._songName}]============`
         )
-        if(log && log.vannilaData == true) {
+        if(vannilaData == true) {
             console.log(`
             \x1b[1;36mVanilla Data:
                 \x1b[0m
@@ -109,7 +109,7 @@ export class Map {
             `)
         }
 
-        if(log && log.customData == true) {
+        if(customData && customData == true) {
             console.log(`
             \x1b[1;36mCustom Data:
                 \x1b[0m
@@ -127,7 +127,7 @@ export class Map {
             `)
         }
 
-        if(!log) {
+        if(!vannilaData && !customData) {
             console.log(`
             \x1b[1;36mVanilla Data:
                 \x1b[0m
