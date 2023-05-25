@@ -244,5 +244,3 @@ export type defaultGeometryJson = {
         }
     }
 }
-
-export type defaultMaterialJson = Record<any, materialType>
