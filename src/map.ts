@@ -1,4 +1,4 @@
-import { Json, reqMods, envNames, suggestMods, Vec3, paths, materialType, configType, defaultArcJson, defaultBombJson, defaultChainJson, defaultMaterialJson, defaultObstacleJson, defaultNoteJson, defaultCustomEventJson, defaultLightEventJson, defaultEnvironmentJson } from './types.ts'
+import { Json, reqMods, envNames, suggestMods, Vec3, paths, materialType, configType, defaultArcJson, defaultBombJson, defaultChainJson, defaultMaterialJson, defaultObstacleJson, defaultNoteJson, defaultCustomEventJson, defaultLightEventJson, defaultEnvironmentJson, defaultGeometryJson } from './types.ts'
 import { log, beatmapFile } from './internal.ts'
 import { compress } from "https://deno.land/x/zip@v1.2.3/mod.ts";
 
@@ -172,6 +172,7 @@ export class Map {
     get lightEvents() { return this.configuration.file.basicBeatmapEvents as Array<defaultLightEventJson> }
 
     get environment() { return this.configuration.file.customData.environment as Array<defaultEnvironmentJson> }
+    get geometry() { return this.configuration.file.customData.environment as Array<defaultGeometryJson>}
     get customEvents() { return this.configuration.file.customData.customEvents as Array<defaultCustomEventJson> }
     get fakeNotes() { return this.configuration.file.customData.fakeColorNotes as Array<defaultNoteJson> }
     get fakeWalls() { return this.configuration.file.customData.fakeObstacles as Array<defaultObstacleJson> }

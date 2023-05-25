@@ -214,7 +214,35 @@ export type defaultEnvironmentJson = Record<string, any> | {
     id: string,
     lookup: lookup,
     duplicate: number,
-    active: boolean
+    active: boolean,
+    track: string,
+    position: Vec3,
+    rotation: Vec3,
+    localRotation: Vec3,
+    scale: Vec3
+    components: {
+        ILightWithId: {
+            lightID: number,
+            lightType: number
+        }
+    }
+}
+
+export type defaultGeometryJson = {
+    geometry: {
+        material: materialType
+    },
+    position: Vec3,
+    rotation: Vec3,
+    localRotation: Vec3,
+    scale: Vec3
+    track: string,
+    components: {
+        ILightWithId: {
+            lightID: number,
+            lightType: number
+        }
+    }
 }
 
 export type defaultMaterialJson = Record<any, materialType>
