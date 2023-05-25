@@ -96,6 +96,7 @@ export class Map {
         if(log && log.vannilaData == true) {
             console.log(`
             \x1b[1;36mVanilla Data:
+                \x1b[0m
                     \x1b[32mNotes: ${files.colorNotes.length},
 
                     \x1b[32mWalls: ${files.obstacles.length},
@@ -111,6 +112,7 @@ export class Map {
         if(log && log.customData == true) {
             console.log(`
             \x1b[1;36mCustom Data:
+                \x1b[0m
                 \x1b[32mFake Notes: ${files.customData.fakeColorNotes.length},
 
                 \x1b[32mFake Walls: ${files.customData.fakeObstacles.length},
