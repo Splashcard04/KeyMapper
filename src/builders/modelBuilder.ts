@@ -29,21 +29,30 @@ export class modelBuilder {
         const file = JSON.parse(Deno.readTextFileSync(path+'.rmmodel'))
 
         file.objects.forEach((x: Json) => {
-            this.a.forEach(a => {
-                if(a.track == x.track) {
-                    a.object
-                    .position(x.pos)
-                    .localRotation(x.rot)
-                    .scale(x.scale)
-                    .push()
-                } else {
-                    this.object
-                    .position(x.pos)
-                    .localRotation(x.rot)
-                    .scale(x.scale)
-                    .push()
-                }
-            })
+
+            if(this.a.length > 0) {
+                this.a.forEach(a => {
+                    if(a.track == x.track) {
+                        a.object
+                        .position(x.pos)
+                        .localRotation(x.rot)
+                        .scale(x.scale)
+                        .push()
+                    } else {
+                        this.object
+                        .position(x.pos)
+                        .localRotation(x.rot)
+                        .scale(x.scale)
+                        .push()
+                    }
+                })
+            } else {
+                this.object
+                .position(x.pos)
+                .localRotation(x.rot)
+                .scale(x.scale)
+                .push()
+            }
         })
 
         return this
