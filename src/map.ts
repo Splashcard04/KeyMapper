@@ -77,6 +77,43 @@ export class Map {
         if(config.mapName) this.configuration.infoFile._songName = config.mapName
         if(config.mapSubName) this.configuration.infoFile._songSubName = config.mapSubName
     }
+    
+    log(log?: logType) {
+        console.log(
+            `============[${this.configuration.infoFile._songName}]============`
+        )
+        if(log && log.vannilaData == true) {
+            console.log(`
+                * Vanilla Data:
+                    Notes: ${file.colorNotes.length},
+
+                    Walls: ${file.obstacles.length},
+
+                    Bombs: ${file.bombNotes.length},
+
+                    Chains: ${file.burstSliders.length}
+
+                    Arcs: ${file.sliders.length}
+            `)
+        }
+
+        if(log && log.customData == true) {
+            console.log(`
+                * Custom Data:
+                    Fake Notes: ${file.customData.fakeColorNotes.length},
+
+                    Fake Walls: ${file.customData.fakeObstacles.length},
+
+                    Fake Bombs: ${file.customData.fakeBombNotes.length},
+
+                    Fake Chains: ${file.customData.fakeBurstSliders.length},
+
+                    Environment Objects: ${file.customData.environment.length},
+                    
+                    Custom Events: ${ file.customData.customEvents.length}
+            `)
+        }
+    }
 
     end() {
 
