@@ -1,5 +1,5 @@
 import { activeDiff } from '../map.ts'
-import { Json, Vec4, Vec3, shader } from '../types.ts'
+import { Json, Vec4, Vec3, shader, shape, materialType } from '../types.ts'
 
 export class geometryBuilder {
     json: Json = {
@@ -8,7 +8,7 @@ export class geometryBuilder {
         }
     }
 
-    constructor(type?: geometryType, material?: materialType) {
+    constructor(type?: shape, material?: materialType) {
         this.json.geometry.type = type ?? "Cube"
         this.json.geometry.material = material ?? { shader: "Standard" }
         return this
