@@ -9,7 +9,6 @@ type logType = {
     vannilaData?: boolean
 }
 
-
 type mapConfig = {
     formatJsonFile?: boolean,
     requirements?: reqMods[],
@@ -54,7 +53,13 @@ export class Map {
             if(this.configuration.output.indexOf(x._beatmapCharacteristicName) !== -1) {
                 x._difficultyBeatmaps.forEach((y: Json) => {
                     if(this.configuration.output.indexOf(y._difficulty) !== -1) {
-                        y.customData = {}
+                        y.customData = {
+                            _requirements: [],
+                            _suggestions: [],
+                            _playerOptions: {
+                                _graphics: {}
+                            }
+                        }
                         y.customData._requirements = config.requirements ?? []
                         y.customData._suggestions = config.suggestions ?? []
                         if(config.mirrorQuality) y.customData._playerOptions._graphics._mirrorGraphicsSettings = config.mirrorQuality
