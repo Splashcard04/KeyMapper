@@ -126,6 +126,36 @@ export class Map {
                 \x1b[32mCustom Events: ${files.customData.customEvents.length}
             `)
         }
+
+        if(!log) {
+            console.log(`
+            \x1b[1;36mVanilla Data:
+                \x1b[0m
+                    \x1b[32mNotes: ${files.colorNotes.length},
+
+                    \x1b[32mWalls: ${files.obstacles.length},
+
+                    \x1b[32mBombs: ${files.bombNotes.length},
+
+                    \x1b[32mChains: ${files.burstSliders.length}
+
+                    \x1b[32mArcs: ${files.sliders.length}
+
+            \x1b[1;36mCustom Data:
+                \x1b[0m
+                    \x1b[32mFake Notes: ${files.customData.fakeColorNotes.length},
+            
+                    \x1b[32mFake Walls: ${files.customData.fakeObstacles.length},
+            
+                    \x1b[32mFake Bombs: ${files.customData.fakeBombNotes.length},
+            
+                    \x1b[32mFake Chains: ${files.customData.fakeBurstSliders.length},
+            
+                    \x1b[32mEnvironment Objects: ${files.customData.environment.length},
+                                
+                    \x1b[32mCustom Events: ${files.customData.customEvents.length}
+            `)
+        }
     }
 
     end() {
