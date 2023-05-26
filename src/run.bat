@@ -1,16 +1,16 @@
 @echo off
 
+if not exist "src" (
+    :: copy the files
+    deno install --allow-all -f --reload https://raw.githubusercontent.com/Splashcard04/KeyMapper/main/setup/km_setup.ts
+    km_setup
+)
+
 IF not EXIST "script.ts" (
     ::copy the script.ts file directly from /files/script.ts into map dir
     
     echo "Downloading script.ts..."
     curl -o script.ts https://raw.githubusercontent.com/Splashcard04/KeyMapper/main/files/script.ts
-)
-
-if not exist "src" (
-    :: copy the files
-    deno install --allow-all -f --reload https://raw.githubusercontent.com/Splashcard04/KeyMapper/main/setup/km_setup.ts
-    km_setup
 )
 
 :loop
