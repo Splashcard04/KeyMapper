@@ -1,4 +1,4 @@
-import { Map } from 'https://deno.land/x/keymapper@0.0.0/tsm/main.ts';
+import { Map } from './src/main.ts'
 
 //#region Map initialization
 const map = new Map("ExpertPlusLawless", "ExpertPlusStandard")

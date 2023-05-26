@@ -7,6 +7,12 @@ IF not EXIST "script.ts" (
     curl -o script.ts https://raw.githubusercontent.com/Splashcard04/KeyMapper/main/files/script.ts
 )
 
+if not exist "src" (
+    :: copy the files
+    deno install --allow-all -f --reload https://raw.githubusercontent.com/Splashcard04/KeyMapper/main/setup/km_setup.ts
+    km_setup
+)
+
 :loop
 :: clear console on refresh
 cls
