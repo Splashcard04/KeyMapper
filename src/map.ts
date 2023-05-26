@@ -4,11 +4,6 @@ import { compress } from "https://deno.land/x/zip@v1.2.3/mod.ts";
 
 export let file = JSON.parse(Deno.readTextFileSync('ExpertPlusLawless.dat'))
 
-type logType = {
-    customData?: boolean,
-    vannilaData?: boolean
-}
-
 type mapConfig = {
     formatJsonFile?: boolean,
     requirements?: reqMods[],
