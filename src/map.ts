@@ -81,49 +81,43 @@ export class Map {
     log(vannilaData?: boolean, customData?: true) {
         const files = this.configuration.file
 
-        console.log(`
-    \x1b[35m     _  __                 __  __                                       
-    \x1b[35m    | |/ /   ___   _   _  |  \/  |   __ _   _ __    _ __     ___   _ __ 
-    \x1b[35m    | ' /   / _ \ | | | | | |\/| |  / _' | |  _ \  |  _ \   / _ \ |  __|
-    \x1b[35m    | . \  |  __/ | |_| | | |  | | | (_| | | |_) | | |_) | |  __/ | |   
-    \x1b[35m    |_|\_\  \___|  \__, | |_|  |_|  \__,_| | .__/  | .__/   \___| |_|   
-    \x1b[35m                   |___/                   |_|     |_|                  
-        `)
-
         console.log(
-            `============[${this.configuration.infoFile._songName}]============`
+            `\x1b[35m============[${this.configuration.infoFile._songName}]============`
         )
         if(vannilaData == true) {
             console.log(`
-            \x1b[1;36mVanilla Data:
+            \x1b[1;34mVanilla Data:
                 \x1b[0m
-                    \x1b[32mNotes: ${files.colorNotes.length},
+                    \x1b[36mNotes: ${files.colorNotes.length},
 
-                    \x1b[32mWalls: ${files.obstacles.length},
+                    \x1b[36mWalls: ${files.obstacles.length},
 
-                    \x1b[32mBombs: ${files.bombNotes.length},
+                    \x1b[36mBombs: ${files.bombNotes.length},
 
-                    \x1b[32mChains: ${files.burstSliders.length}
+                    \x1b[36mChains: ${files.burstSliders.length}
 
-                    \x1b[32mArcs: ${files.sliders.length}
+                    \x1b[36mArcs: ${files.sliders.length}
+                    
+                    \x1b[0m
             `)
         }
 
         if(customData && customData == true) {
             console.log(`
-            \x1b[1;36mCustom Data:
+            \x1b[1;34mCustom Data:
                 \x1b[0m
-                \x1b[32mFake Notes: ${files.customData.fakeColorNotes.length},
+                \x1b[36mFake Notes: ${files.customData.fakeColorNotes.length},
 
-                \x1b[32mFake Walls: ${files.customData.fakeObstacles.length},
+                \x1b[36mFake Walls: ${files.customData.fakeObstacles.length},
 
-                \x1b[32mFake Bombs: ${files.customData.fakeBombNotes.length},
+                \x1b[36mFake Bombs: ${files.customData.fakeBombNotes.length},
 
-                \x1b[32mFake Chains: ${files.customData.fakeBurstSliders.length},
+                \x1b[36mFake Chains: ${files.customData.fakeBurstSliders.length},
 
-                \x1b[32mEnvironment Objects: ${files.customData.environment.length},
+                \x1b[36mEnvironment Objects: ${files.customData.environment.length},
                     
-                \x1b[32mCustom Events: ${files.customData.customEvents.length}
+                \x1b[36mCustom Events: ${files.customData.customEvents.length}
+                    \x1b[0m
             `)
         }
 
@@ -154,6 +148,7 @@ export class Map {
                     \x1b[32mEnvironment Objects: ${files.customData.environment.length},
                                 
                     \x1b[32mCustom Events: ${files.customData.customEvents.length}
+                        \x1b[0m
             `)
         }
     }
