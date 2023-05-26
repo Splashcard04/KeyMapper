@@ -26,6 +26,7 @@ export class noteBuilder {
     fake(fake?: boolean) {
         if(!fake) this.config.fake = false;
         else this.config.fake = fake
+        return this
     }
 
     interactable(interactable: boolean) {
