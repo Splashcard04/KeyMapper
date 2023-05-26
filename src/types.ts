@@ -2,10 +2,6 @@ import { cutDirection } from './constants.ts'
 
 export type Json = Record<string, any>
 
-export type configType = {
-    formatFile?: boolean
-}
-
 type EaseBase<T extends string> = `easeIn${T}` | `easeOut${T}` | `easeInOut${T}`;
 
 export type ease =
