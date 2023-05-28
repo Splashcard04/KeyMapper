@@ -48,22 +48,22 @@ export class Map {
             if(this.configuration.output.indexOf(x._beatmapCharacteristicName) !== -1) {
                 x._difficultyBeatmaps.forEach((y: Json) => {
                     if(this.configuration.output.indexOf(y._difficulty) !== -1) {
-                        y.customData = {
+                        y._customData = {
                             _requirements: [],
                             _suggestions: [],
                             _playerOptions: {
                                 _graphics: {}
                             }
                         }
-                        y.customData._requirements = config.requirements ?? []
-                        y.customData._suggestions = config.suggestions ?? []
-                        if(config.mirrorQuality) y.customData._playerOptions._graphics._mirrorGraphicsSettings = config.mirrorQuality
-                        if(config.colorLeft) y.customData._colorLeft = { r: config.colorLeft[0], g: config.colorLeft[1], b: config.colorLeft[2] }
-                        if(config.colorRight) y.customData._colorRight = { r: config.colorRight[0], g: config.colorRight[1], b: config.colorRight[2] }
+                        y._customData._requirements = config.requirements ?? []
+                        y._customData._suggestions = config.suggestions ?? []
+                        if(config.mirrorQuality) y._customData._playerOptions._graphics._mirrorGraphicsSettings = config.mirrorQuality
+                        if(config.colorLeft) y._customData._colorLeft = { r: config.colorLeft[0], g: config.colorLeft[1], b: config.colorLeft[2] }
+                        if(config.colorRight) y._customData._colorRight = { r: config.colorRight[0], g: config.colorRight[1], b: config.colorRight[2] }
                         if(config.environment) this.configuration.infoFile._environmentName = config.environment
-                        if(config.reduceDebris) y.customData._playerOptions._reduceDebris = config.reduceDebris
-                        if(config.noHud) y.customData._playerOptions._noTextsAndHuds = config.noHud
-                        if(config.hideSpawnEffect) y.customData._playerOptions._hideSpawnEffect = config.hideSpawnEffect
+                        if(config.reduceDebris) y._customData._playerOptions._reduceDebris = config.reduceDebris
+                        if(config.noHud) y._customData._playerOptions._noTextsAndHuds = config.noHud
+                        if(config.hideSpawnEffect) y._customData._playerOptions._hideSpawnEffect = config.hideSpawnEffect
                     }
                 })
             }
