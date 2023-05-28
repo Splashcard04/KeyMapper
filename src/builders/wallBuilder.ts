@@ -4,6 +4,7 @@ import { Vec1Keyframes, Vec2, Vec3, Vec3Keyframes, Vec4, Vec4Keyframes, Json } f
 export class WallBuilder {
     json: Json = {
         b: 0,
+        d: 10,
         x: 0,
         y: 0,
         w: 1,
@@ -14,12 +15,15 @@ export class WallBuilder {
     }
     private config: Json = {}
 
-    constructor(time: number) {
-        this.json.b = time;
+    constructor(time: number, duration: number) {
+        this.json.b = time ?? 0;
+        this.json.d = duration ?? 10
         return this
     }
     /**the wall object's start time */
     time(time: number) { this.json.b = time; return this }
+    /**the wall object's duration */
+    duration(duration: number) { this.json.d = duration; return this }
     /**is the wall fake? */
     fake(fake: boolean) { this.config.fake = fake; return this }
     /**the wall's x and why coordinates position */
