@@ -4,7 +4,12 @@ import { Json } from '../../types.ts';
 type lookup = "Contains" | "Regex" | "EndsWith" | "StartsWith" | "Exact"
 
 export class despawnerBuilder {
-    private config: Json = {}
+    private config: Json = {
+        ids: [],
+        restore: [],
+        hardDespawn: [],
+        advancedDespawn: []
+    }
     constructor(lookup?: lookup, ids?: string[]) {
         this.config.lookup = lookup ?? "Contains"
         this.config.ids = ids ?? ["Environment"]
@@ -20,13 +25,16 @@ export class despawnerBuilder {
     advancedDespawn(ids: [string, lookup][]) { this.config.advancedDespawn = ids; return this }
 
     push() {
-        this.config.ids.forEach(x => {
-            new environmentBuilder(x, this.config.lookup)
-            .position([-9999, -9999, -9999])
-            .push()
-        })
+        if(this.config.ids.length > 0) {
+            this.config.ids.forEach(x => {
+                new environmentBuilder(x, this.config.lookup)
+                .position([-9999, -9999, -9999])
+                .push()
+            })
+        }
+        
 
-        if(this.config.restore) {
+        if(this.config.restore.length > 0) {
             this.config.restore.forEach(x => {
                 new environmentBuilder(x, this.config.lookup)
                 .position([0, 0, 0])
@@ -35,7 +43,7 @@ export class despawnerBuilder {
             })
         }
 
-        if(this.config.hardDespawn) {
+        if(this.config.hardDespawn.length > 1) {
             this.config.hardDespawn.forEach(x => {
                 new environmentBuilder(x, this.config.lookup)
                 .active(false)
