@@ -17,7 +17,7 @@ type envType = {
 }
 
 export namespace Environment {
-    export class environmentBuilder {
+    export class Builder {
         json: Json = {}
     
         constructor(id?: string, lookup?: lookup) {
@@ -62,7 +62,7 @@ export namespace Environment {
         }
     }
 
-    export class Environment {
+    export class Json {
         json: Json = {}
     
         constructor(x: envType) {
