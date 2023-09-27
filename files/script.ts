@@ -5,8 +5,6 @@ const map = new Map("ExpertPlusLawless", "ExpertPlusStandard")
 
 
 
-
-
 //#region map settings and script end
 map.config({
     formatJsonFile: false
